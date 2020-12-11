@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started and Guides
 
 ### Tutorials for this Project
 To understand how to create this project, use the IntelliJ tutorial.
