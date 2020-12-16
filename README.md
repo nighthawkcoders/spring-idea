@@ -3,4 +3,4 @@
 2. Basic HTML using intro to Spring MVC
 
 ## Hello
-![Basic Formatted String][https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hello.png]
+![Basic Formatted String](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hello.png)
