@@ -3,8 +3,11 @@ Purpose of this repo is to build up the very basics of Spring and Java.
 
 ## Instruction for IntelliJ IDEA beginner
 Jetbrains has good Tutorial.  To get to get setup to my point, you can spend time with listed tutorials, including editing POM files.  Any simple HTML change requires full compile, a lot file transfer happens to target directory.
+
 [Beginning your own project](https://www.jetbrains.com/help/idea/your-first-spring-application.html)
+
 [Understanding Spring and Springboot](https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#)
+
 [Spring MVC](https://spring.io/guides/gs/serving-web-con)
 
 ## Or start with this project
