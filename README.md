@@ -16,7 +16,7 @@ Jetbrains has good Tutorial.  To get to get setup to my point, you can spend tim
 Note: The src/resources/static/index.html is the default page. This page has a form and actions.  The results of these actions map to routes in Hello.java and HelloContoller.
 
 ## Hello
-This example is strictly, but not particularly useful.
+This example introductory, but not particularly useful.
 ![Basic Formatted String](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hello.png)
 
 ## Hello Controller
