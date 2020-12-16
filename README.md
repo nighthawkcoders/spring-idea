@@ -1,6 +1,8 @@
 # The spring-idea repo is a very simple introduction to Spring
-1. Basic Formated String
-2. Basic HTML using intro to Spring MVC
+Purpose of this repo is to build up the basics of Spring and Java.
 
 ## Hello
 ![Basic Formatted String](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hello.png)
+
+## Hello
+![Basic MVC](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hellocontrol.png)
