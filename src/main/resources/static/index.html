@@ -1,30 +1,16 @@
 <!DOCTYPE HTML>
-<html lang="en">
-
-    <head>
-        <title>Spring Hello</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    </head>
-
-    <body>
-        <p><a href="/hello">Hello default!</a></p>
-        <form action="/hello" method="GET" id="helloForm">
-            <div>
-                <label for="helloField">Type alternate hello name?</label>
-                <input name="name" id="helloField">
-                <button>Hello!</button>
-            </div>
-        </form>
-
-        <p><a href="/greeting">Greeting default!</a></p>
-        <form action="/greeting" method="GET" id="greetForm">
-            <div>
-                <label for="greetField">Type alternate greeting name?</label>
-                <input name="name" id="greetField">
-                <button>Greetings!</button>
-            </div>
-        </form>
-
-    </body>
-
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index Page</title>
+</head>
+<body>
+    <p><a href="/greet">Greet Website</a></p>
+    <form action="/hello" method="GET" id="helloForm">
+        <div>
+            <label for="helloField">Type alternate hello name?</label>
+            <input name="name" id="helloField">
+            <button>Hello!</button>
+        </div>
+    </form>
+</body>
 </html>
