@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div th:replace="header :: header"></div>
+<div th:replace="fragments/header :: header"></div>
 <div class="contact" style="height: 35vh;">
     <div class="row justify-content-center" style="margin-top: 2%;">
         <form action="/greeting" method="GET" id="greetForm">
@@ -24,7 +24,7 @@
         </form>
     </div>
 </div>
-<div th:replace="footer :: footer"></div>
+<div th:replace="fragments/footer :: footer"></div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
