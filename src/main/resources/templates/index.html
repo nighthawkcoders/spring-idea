@@ -6,13 +6,15 @@
 </head>
 <body>
     <div th:replace="fragments/header :: header"></div>
-    <form action="/hello" method="GET" id="helloForm">
-        <div class="row justify-content-center" style="margin-top: 2%;">
-            <label for="helloField">Type a hello name?</label>
-            <input name="name" id="helloField">
-            <button>Hello!</button>
-        </div>
-    </form>
+    <div class="contact" style="height: 35vh;">
+        <form action="/hello" method="GET" id="helloForm">
+            <div class="row justify-content-left" style="margin: 2%;">
+                <label for="helloField">Type a hello name?</label>
+                <input name="name" id="helloField">
+                <button>Hello!</button>
+            </div>
+        </form>
+    </div>
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
