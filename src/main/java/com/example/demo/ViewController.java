@@ -31,6 +31,11 @@ public class ViewController {
         return "articles/pbl";                     // returns HTML VIEW (greeting)
     }
 
+    @GetMapping("/snake")   // CONTROLLER handles GET request for
+    public String snake() {
+        return "games/snake";                     // returns HTML VIEW (greeting)
+    }
+
     @GetMapping("/fib")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
     public String fib() {
         // @RequestParam handles required and default values, name and model are class variables, model looking like JSON
