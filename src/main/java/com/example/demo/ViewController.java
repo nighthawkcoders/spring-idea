@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.example.demo.technicals.FibStream;
+import com.example.demo.technicals.*;
 
 @Controller  // HTTP requests are handled a controller, using the @Controller annotation
 public class ViewController {
@@ -31,9 +31,20 @@ public class ViewController {
 
     @GetMapping("/fib")   // CONTROLLER handles GET request for
     public String fib(@RequestParam(name="seq", required=false,  defaultValue="1") String seq, Model model) {
-        FibStream fib = new FibStream(Integer.parseInt(seq));
-        model.addAttribute("fib", fib.getNth());        // MODEL is passed to html
-        model.addAttribute("fibseq", fib.getNthSeq());  // MODEL is passed to html
+        int nth = Integer.parseInt(seq);
+        FibFor fibfor = new FibFor(nth);
+        FibRecurse fibrecurse = new FibRecurse(nth);
+        FibStream fibstream = new FibStream(nth);
+        FibWhile fibwhile = new FibWhile(nth);
+
+        // MODEL attributes are passed to html
+        model.addAttribute("fib", fibstream.getNth());
+        model.addAttribute("fibseq", fibstream.getNthSeq());
+        model.addAttribute("fibfortime", fibfor.getTimeElapsed());
+        model.addAttribute("fibrecursetime", fibrecurse.getTimeElapsed());
+        model.addAttribute("fibstreamtime", fibstream.getTimeElapsed());
+        model.addAttribute("fibwhiletime", fibwhile.getTimeElapsed());
+
         return "technicals/fib";                        // returns HTML VIEW (greeting)
     }
 }
