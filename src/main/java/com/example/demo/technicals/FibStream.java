@@ -12,9 +12,9 @@ public class FibStream {
      Construct the nth fibonacci number
      @param: nth constrained to 92 because of maximum long
      */
-    FibStream(int nth) {
+    public FibStream(int nth) {
         this.size = nth;
-        this.list = new ArrayList<Long>();
+        this.list = new ArrayList<>();
         this.hash = new HashMap<>();
 
         Stream.iterate(new long[]{0, 1}, f -> new long[]{f[1], f[0] + f[1]})
@@ -25,19 +25,19 @@ public class FibStream {
             });
     }
 
-    long getNth() {
+    public long getNth() {
         return list.get(size - 1);
     }
 
-    ArrayList<Long> getNthSeq() {
+    public ArrayList<Long> getNthSeq() {
         return hash.get(this.getNth());
     }
 
-    ArrayList<Long> getList() {
+    public ArrayList<Long> getList() {
         return list;
     }
 
-    HashMap<Long, ArrayList<Long>> getHash() {
+    public HashMap<Long, ArrayList<Long>> getHash() {
         return hash;
     }
 

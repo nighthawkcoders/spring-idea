@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Greeting Page</title>
+    <div th:replace="fragments/headfile :: head"></div>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="contact" style="height: 35vh;">
+    <div class="row justify-content-center" style="margin-top: 2%;">
+        <ol>
+            <p th:text="'Fibonacci number, ' + ${fib} " />
+            <p th:text="'Fibonacci sequence, ' + ${fibseq} " />
+        </ol>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
