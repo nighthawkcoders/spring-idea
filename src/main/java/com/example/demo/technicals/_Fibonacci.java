@@ -2,11 +2,12 @@ package com.example.demo.technicals;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.time.Instant;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+
 
 abstract class _Fibonacci {
     int size;
-    long timeElapsed;
+    Duration timeElapsed;
     ArrayList<Long> list;
     HashMap<Long, Object> hash;
 
@@ -19,10 +20,10 @@ abstract class _Fibonacci {
         this.list = new ArrayList<>();
         this.hash = new HashMap<Long, Object>();
 
-        long startTime = Instant.now().toEpochMilli();
+        Instant start = Instant.now();
         this.init();
-        long endTime = Instant.now().toEpochMilli();
-        this.timeElapsed = endTime - startTime;
+        Instant end = Instant.now();
+        this.timeElapsed = Duration.between(start, end);
     }
 
     protected abstract void init();
@@ -32,8 +33,8 @@ abstract class _Fibonacci {
         hash.put(num, list.clone());
     }
 
-    public long getTimeElapsed() {
-        return timeElapsed;
+    public int getTimeElapsed() {
+        return timeElapsed.getNano();
     }
 
     public long getNth() {
