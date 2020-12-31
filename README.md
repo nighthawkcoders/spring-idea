@@ -17,11 +17,3 @@ Jetbrains has good Tutorial.  To get to get setup to my point, you can spend tim
 <LI>In browser type: localhost:8080</LI>
 </OL>
 Note: The src/resources/static/index.html is the default page. This page has a form and actions.  The results of these actions map to routes in Hello.java and HelloContoller.
-
-## Hello
-This example is introductory, but not particularly useful.
-![Basic Formatted String](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hello.png)
-
-## Hello Controller
-This example opens up the possibilities of Java, Spring, and HTML.
-![Basic Spring MVC](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/hellocontrol.png)
