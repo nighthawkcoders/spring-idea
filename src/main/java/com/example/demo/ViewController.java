@@ -30,6 +30,18 @@ public class ViewController {
         return "timeline";
     }
 
+    @GetMapping("/java-mvc")
+    public String javaMVC(Model model) {
+        model.addAttribute("url", "https://padlet.com/jmortensen7/csatime1_2");
+        return "timeline";
+    }
+
+    @GetMapping("/java-hello")
+    public String javaHello(Model model) {
+        model.addAttribute("url", "https://padlet.com/jmortensen7/csatime");
+        return "timeline";
+    }
+
     @GetMapping("/pbl")   // CONTROLLER handles GET request for
     public String pblArticle() {
         return "articles/pbl";                     // returns HTML VIEW (greeting)

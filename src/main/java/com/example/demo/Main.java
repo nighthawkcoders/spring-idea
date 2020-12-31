@@ -18,11 +18,5 @@ public class Main {
                                                     // run server on localhost:8080
     }
 
-    @GetMapping("/hello")   // Main class handles GET request for /hello via @GetMapping annotation
-    public String sayHello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        // @RequestParam handles default values, name is regular Java parameter
-        return String.format("Hello, %s!", name);    // This is a simple output of formatted string
-    }
-
 }
 
