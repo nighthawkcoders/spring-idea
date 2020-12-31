@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.UItext.ConsoleMethods;
+import java.time.Instant;
+import java.time.Duration;
 
 /**
  * Evaluates String as palindrome
@@ -81,19 +83,28 @@ public class Palindrome
             return true;
         }
 
-        // Select testing method
+
+        // Select testing method and calculate time
+        boolean result;
+        Instant start = Instant.now();
         switch (method) {
             case 1:
-                return palindromeTestIJ();
+                result =  palindromeTestIJ();
+                break;
             case 2:
-                return palindromeRecurseDriver();
+                result =  palindromeRecurseDriver();
+                break;
             case 3:
-                return palindromeReplace();
+                result = palindromeReplace();
+                break;
             default:
-                this.setPaliLog(Candidate +" not run " + method + " unkown");
-                return false;
+                this.setPaliLog(Candidate +" not run " + method + " unknown");
+                result = false;
         }
-
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        this.setPaliLog(this.getPaliLog() + " " + timeElapsed.getNano() + " nano seconds");
+        return result;
     }
 
     private boolean palindromeReplace()
