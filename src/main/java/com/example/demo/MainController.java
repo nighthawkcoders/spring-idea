@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.fibonacci.*;
 
 @Controller  // HTTP requests are handled a controller, using the @Controller annotation
-public class ViewController {
+public class MainController {
 
     @GetMapping("/greet")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -73,5 +73,17 @@ public class ViewController {
 
         //render fibonacci results
         return "algos/fib";
+    }
+
+    @GetMapping("/pali")   // CONTROLLER handles GET request for
+    public String pali(@RequestParam(name="phrase", required=false,  defaultValue="A man a plan a canal panama") String phrase, Model model) {
+
+        //MODEL attributes are passed back html
+        model.addAttribute("log1", Palindrome.isPaliLog(phrase, 1));
+        model.addAttribute("log2", Palindrome.isPaliLog(phrase, 2));
+        model.addAttribute("log3", Palindrome.isPaliLog(phrase, 3));
+
+        //render fibonacci results
+        return "algos/pali";
     }
 }
