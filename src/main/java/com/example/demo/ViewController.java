@@ -19,6 +19,11 @@ public class ViewController {
         return "greet";                     // returns HTML VIEW (greeting)
     }
 
+    @GetMapping("/repos")
+    public String repos() {
+        return "repos";
+    }
+
     @GetMapping("/java-event")
     public String javaEvent(Model model) {
         model.addAttribute("url", "https://padlet.com/jmortensen7/jho9v5wc4p9jgyn2");
