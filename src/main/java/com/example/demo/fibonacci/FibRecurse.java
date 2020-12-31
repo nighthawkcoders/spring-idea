@@ -1,4 +1,4 @@
-package com.example.demo.technicals;
+package com.example.demo.fibonacci;
 
 public class FibRecurse extends _Fibonacci {
 

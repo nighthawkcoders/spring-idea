@@ -1,4 +1,4 @@
-package com.example.demo.technicals;
+package com.example.demo.fibonacci;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.time.Instant;

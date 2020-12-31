@@ -1,4 +1,4 @@
-package com.example.demo.technicals;
+package com.example.demo.fibonacci;
 
 public class FibWhile extends _Fibonacci {
     public FibWhile(int nth) {

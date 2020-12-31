@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.example.demo.technicals.*;
+import com.example.demo.fibonacci.*;
 
 @Controller  // HTTP requests are handled a controller, using the @Controller annotation
 public class ViewController {
@@ -30,7 +30,7 @@ public class ViewController {
     }
 
     @GetMapping("/fib")   // CONTROLLER handles GET request for
-    public String fib(@RequestParam(name="seq", required=false,  defaultValue="1") String seq, Model model) {
+    public String fib(@RequestParam(name="seq", required=false,  defaultValue="2") String seq, Model model) {
         //nth is fibonacci request
         int nth = Integer.parseInt(seq);
 
@@ -49,6 +49,6 @@ public class ViewController {
         model.addAttribute("fibwhiletime", fibwhile.getTimeElapsed());
 
         //render fibonacci results
-        return "technicals/fib";
+        return "algos/fib";
     }
 }
