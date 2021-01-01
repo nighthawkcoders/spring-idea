@@ -79,9 +79,9 @@ public class MainController {
     public String pali(@RequestParam(name="phrase", required=false,  defaultValue="A man a plan a canal panama") String phrase, Model model) {
 
         //MODEL attributes are passed back html
-        model.addAttribute("log1", Palindrome.isPaliLog(phrase, 1));
-        model.addAttribute("log2", Palindrome.isPaliLog(phrase, 2));
-        model.addAttribute("log3", Palindrome.isPaliLog(phrase, 3));
+        model.addAttribute("log1", Palindrome.isPaliLog2(phrase, 1));
+        model.addAttribute("log2", Palindrome.isPaliLog2(phrase, 2));
+        model.addAttribute("log3", Palindrome.isPaliLog2(phrase, 3));
 
         //render fibonacci results
         return "algos/pali";

@@ -3,6 +3,8 @@ package com.example.demo;
 import com.example.demo.UItext.ConsoleMethods;
 import java.time.Instant;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Evaluates String as palindrome
@@ -19,6 +21,8 @@ public class Palindrome
     // Instance variables
     private String Candidate;
     private String Log;
+    private List<String> Log2 = new  ArrayList<String>();;
+
 
     public static void main(String[] args) 						// Console driver
     {
@@ -42,6 +46,15 @@ public class Palindrome
         return test.getPaliLog();
     }
 
+    public static List<String> isPaliLog2(String candidate, int method)	// Business logic driver
+    {
+        // Tests candidate and returns result message
+        Palindrome test = new Palindrome();
+        test.setPaliCandidate(candidate);
+        test.isPali(method);
+        return test.getPaliLog2();
+    }
+
     public String getPaliCandidate() {
         // Getter
         return Candidate;
@@ -52,6 +65,11 @@ public class Palindrome
         return Log;
     }
 
+    public List<String> getPaliLog2() {
+        // Getter
+        return Log2;
+    }
+
     private void setPaliCandidate(String candidate) {
         // Setter
         Candidate = candidate;
@@ -60,11 +78,13 @@ public class Palindrome
     private void setPaliLog(String log) {
         // Setter
         Log = "\n" + log;
+        Log2.add(log);
     }
 
     private void concatPaliLog(String log) {
         // Setter
         Log += "\n" + log;
+        Log2.add(log);
     }
 
     private void setPaliLog(boolean isPali)
@@ -106,7 +126,7 @@ public class Palindrome
         }
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        this.setPaliLog(this.getPaliLog() + " " + timeElapsed.getNano() + " nano seconds");
+        this.concatPaliLog(timeElapsed.getNano() + " nano seconds");
         return result;
     }
 
