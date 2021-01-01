@@ -78,6 +78,7 @@ public class Palindrome
     private void setPaliLog(String log) {
         // Setter
         Log = "\n" + log;
+        Log2.add("");
         Log2.add(log);
     }
 
@@ -167,7 +168,7 @@ public class Palindrome
             char rchar = Character.toLowerCase(Candidate.charAt(j));
 
             // Compare is Character by Character
-            concatPaliLog( String.format( "Step %d: Candidate(%d) = %c -- Candidate(%d) = %c" , step, i, lchar, j, rchar ));
+            concatPaliLog( String.format( "Step %d: lchar(%d):\"%c\"  ==  rchar(%d):\"%c\"" , step, i, lchar, j, rchar ));
             if ( !(Character.isLetterOrDigit(lchar)) ) {
                 concatPaliLog( String.format( " skip left %c" ,lchar ));
                 i++;
