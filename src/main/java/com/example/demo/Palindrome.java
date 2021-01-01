@@ -59,18 +59,21 @@ public class Palindrome
 
     private void setPaliLog(String log) {
         // Setter
-        Log = log;
+        Log = "\n" + log;
     }
 
-    private void setPaliLog(boolean isPali, String method)
+    private void concatPaliLog(String log) {
+        // Setter
+        Log += "\n" + log;
+    }
+
+    private void setPaliLog(boolean isPali)
     {
         // Log to persist in Object
-        this.setPaliLog( String.format ("\"%s\"  %s  %s",
-                Candidate,
+        this.concatPaliLog( String.format ("%s",
                 isPali
                         ? "Is pali :)"
-                        : "Not pali :(",
-                method
+                        : "Not pali :("
         ) );
         ConsoleMethods.println( this.getPaliLog() );
     }
@@ -110,32 +113,31 @@ public class Palindrome
     private boolean palindromeReplace()
     {
         // Entering Replace (Built-in) method
-        String msg = "Replace method";
-        ConsoleMethods.println( String.format("\n%s, Candidate: \"%s\",  Length = %d" ,msg, Candidate, Candidate.length()) );
+        setPaliLog ("Replace method");
+        concatPaliLog( String.format("Candidate: \"%s\",  Length = %d" ,Candidate, Candidate.length() ) );
         int step = 0;
-
 
         // Built in methods to remove special characters by regular expression (regex)
         String forwardStr = Candidate.replaceAll("[^a-zA-Z0-9]", "");
-        ConsoleMethods.println( String.format( "Step %d: Prepare string one \"%s\" to  \"%s\"", step++, Candidate, forwardStr ));
+        concatPaliLog( String.format( "Step %d: Prepare string one \"%s\" to  \"%s\"", step++, Candidate, forwardStr ) );
 
         // Built in method in StringBuilder to reverse string and convert back to string
         String reverseStr = new StringBuilder(forwardStr).reverse().toString();
-        ConsoleMethods.println( String.format( "Step %d: Prepare string two \"%s\" to  \"%s\"", step++, forwardStr, reverseStr ));
+        concatPaliLog( String.format( "Step %d: Prepare string two \"%s\" to  \"%s\"", step++, forwardStr, reverseStr ) );
 
         // Compare strings by ignoring case
-        ConsoleMethods.println( String.format( "Step %d: Compare ignoring case \"%s\" to reverse \"%s\"", step,forwardStr, reverseStr ));
         boolean result = (forwardStr.equalsIgnoreCase(reverseStr));
-        setPaliLog(result, msg);
+        concatPaliLog( String.format( "Step %d: Compare ignoring case \"%s\" to reverse \"%s\"", step, forwardStr, reverseStr ) );
 
+        setPaliLog(result);
         return result;
     }
 
     private boolean palindromeTestIJ()
     {
         // Entering IJ method
-        String msg = "IJ method";
-        ConsoleMethods.println( String.format("\n%s, Candidate: \"%s\",  Length = %d" ,msg, Candidate, Candidate.length()) );
+        setPaliLog("IJ method");
+        concatPaliLog( String.format("Candidate: \"%s\",  Length = %d" , Candidate, Candidate.length()) );
 
         int length = Candidate.length()-1;
         int step = 0;
@@ -145,35 +147,35 @@ public class Palindrome
             char rchar = Character.toLowerCase(Candidate.charAt(j));
 
             // Compare is Character by Character
-            ConsoleMethods.println( String.format( "Step %d: Candidate(%d) = %c -- Candidate(%d) = %c" , step, i, lchar, j, rchar ));
+            concatPaliLog( String.format( "Step %d: Candidate(%d) = %c -- Candidate(%d) = %c" , step, i, lchar, j, rchar ));
             if ( !(Character.isLetterOrDigit(lchar)) ) {
-                ConsoleMethods.println( String.format( " skip left %c" ,lchar ));
+                concatPaliLog( String.format( " skip left %c" ,lchar ));
                 i++;
             } else if ( !(Character.isLetterOrDigit(rchar)) ) {
-                ConsoleMethods.println( String.format( " skip right %c", rchar ));
+                concatPaliLog( String.format( " skip right %c", rchar ));
                 j--;
             } else if ( lchar == rchar) {
-                ConsoleMethods.println( String.format(" eq left %c = right %c" , lchar, rchar));
+                concatPaliLog( String.format(" eq left %c = right %c" , lchar, rchar));
                 i++; j--;
             } else {
-                ConsoleMethods.println( String.format(" not eq left %c = right %c" , lchar, rchar));
-                setPaliLog(false, msg);
+                concatPaliLog( String.format(" not eq left %c = right %c" , lchar, rchar));
+                setPaliLog(false);
                 return false;
             }
         }
-        setPaliLog(true, msg);
+        setPaliLog(true);
         return true;
     }
 
     private boolean palindromeRecurseDriver()
     {
         // Recursion driver,  used to setup recursion method
-        String msg = "Recursion method";
-        ConsoleMethods.println( String.format("\n%s, Candidate: \"%s\",  Length = %d" ,msg, Candidate, Candidate.length()) );
+        setPaliLog("Recursion method");
+        concatPaliLog( String.format("Candidate: \"%s\",  Length = %d" , Candidate, Candidate.length()) );
 
         String testStr = Candidate;
         boolean result = palindromeTestRecurse(testStr, 0);
-        setPaliLog(result, msg);
+        setPaliLog(result);
 
         return result;
     }
@@ -185,21 +187,21 @@ public class Palindrome
         int rindex = shrinker.length();
 
         // String reduces on each recursion
-        ConsoleMethods.println( String.format("Step %d: Candidate \"%s\"" , step, shrinker ) );
+        concatPaliLog( String.format("Step %d: Candidate \"%s\"" , step, shrinker ) );
         char lchar = Character.toLowerCase(shrinker.charAt(0));
         char rchar = Character.toLowerCase(shrinker.charAt(rindex-1));
 
         if (! (Character.isLetterOrDigit(lchar) )) {
-            ConsoleMethods.println( String.format(" skip left %c" , lchar));
+            concatPaliLog( String.format(" skip left %c" , lchar));
             lindex++;
         } else if (! (Character.isLetterOrDigit(rchar) )) {
-            ConsoleMethods.println( String.format(" skip right %c" , rchar));
+            concatPaliLog( String.format(" skip right %c" , rchar));
             rindex--;
         } else if ( lchar == rchar ) {
-            ConsoleMethods.println( String.format(" eq left %c = right %c" , lchar, rchar));
+            concatPaliLog( String.format(" eq left %c = right %c" , lchar, rchar));
             lindex++; rindex--;
         } else {
-            ConsoleMethods.println( String.format(" not eq left %c = right %c" , lchar, rchar));
+            concatPaliLog( String.format(" not eq left %c = right %c" , lchar, rchar));
             return false;
         }
 
