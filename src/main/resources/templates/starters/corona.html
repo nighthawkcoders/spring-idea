@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/headfile :: head">
     <title>REST api Test</title>
-    <div th:replace="fragments/headfile :: head"></div>
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
@@ -14,7 +13,7 @@
                 <button>Refresh!</button>
             </form>
         </div>
-        <table style="margin: 2%" border="1">
+        <table style="margin: 2%">
             <tr>
                 <th>Country</th>
                 <th>All-time Cases</th>
@@ -23,13 +22,25 @@
             </tr>
             <tr th:each="country : ${countries}">
                 <td th:text="${country.country_name}"></td>
-                <td align="right"  th:text="${country.cases}"></td>
-                <td align="right"  th:text="${country.deaths}"></td>
-                <td align="right"  th:text="${country.active_cases}"></td>
+                <td th:text="${country.cases}"></td>
+                <td th:text="${country.deaths}"></td>
+                <td th:text="${country.active_cases}"></td>
             </tr>
         </table>
         <div th:replace="fragments/footer :: footer"></div>
     </div>
 </div>
 </body>
+<style>
+    table, td, th {
+        border: 1px solid white;
+    }
+    td, th {
+        text-align:right;
+    }
+    td:first-child, th:first-child {
+        text-align: left;
+    }
+
+</style>
 </html>
