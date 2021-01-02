@@ -1,22 +1,26 @@
 # The spring-idea repo is a very simple introduction to Spring
-Purpose of this repo is to build up the very basics of Spring and Java.
+Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes.
 
 ## Instruction for IntelliJ IDEA beginner
-Jetbrains has good Tutorial.  To get started, you can spend time with these links:
+To get started, you can spend time with these links:
 
-[Beginning your own project](https://www.jetbrains.com/help/idea/your-first-spring-application.html)
+[Jetbrains on beginning your own project](https://www.jetbrains.com/help/idea/your-first-spring-application.html)
 
-[Understanding Spring and Springboot](https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#)
+[Understanding Spring and Springboot Annotations](https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#)
 
 [Spring Homesite](https://spring.io/)
 
-## Or start with this project and extend it.
+## Or start with this project and try to understand it.
 <OL> 
 <LI>Using IntelliJ clone Repo</LI>
 <LI>Run main method in src/main/java/com.example.demo/Hello.java</LI>
 <LI>In browser type: localhost:8080</LI>
 </OL>
-Note: The src/resources/templates/index.html is the default page. This page has a form and actions.  The results of these actions map to routes in Hello.java and HelloContoller.
+Notes:
+<OL>
+<LI>The src/resources/templates/index.html is the default HTML page. Not technically interesting until you examine ThymeLeaf fragments (headfile.html, header.html, footer.html).</LI>
+<LI> Find Main.java and MainContoller.java to understand routes. This will help you find code behind HTML</LI>
+</OL>
 
 # How to deploy Spring on Raspberry Pi
 Basic ides is to run a JAR.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
