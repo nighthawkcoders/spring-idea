@@ -8,7 +8,7 @@ Jetbrains has good Tutorial.  To get to get setup to my point, you can spend tim
 
 [Understanding Spring and Springboot](https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#)
 
-[Spring MVC](https://spring.io/guides/gs/serving-web-con)
+[Spring Homesite](https://spring.io/)
 
 ## Or start with this project
 <OL> 
