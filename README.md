@@ -38,11 +38,35 @@ To start the JAR automatically it will require a .service file that executes the
  
 Running these commands will test your service:
  
-     sudo systemctl start <my_service_file>.service
-     sudo systemctl stop <my_service_file>.service
+    sudo systemctl start <my_service_file>.service
+    sudo systemctl stop <my_service_file>.service
 
 Running these commands will enable or disable service at a reboot:
 
     sudo systemctl enable <my_service_file>.service
     sudo systemctl disable <my_service_file>.service
 
+Now that the Spring application is running as a service, an NGINX proxy allows opening the application to an unprivileged port and setting up SSL.
+Create an NGINX configuration for the reverse proxy, File: /etc/nginx/conf.d/<my_nginx_file>.conf
+    
+    server {
+            listen 80;
+            listen [::]:80;
+    
+            server_name example.com;
+    
+            location / {
+                 proxy_pass http://localhost:8080/;
+                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                 proxy_set_header X-Forwarded-Proto $scheme;
+                 proxy_set_header X-Forwarded-Port $server_port;
+            }
+    }
+
+Test the configuration to make sure there are no errors:
+
+    sudo nginx -t
+
+If there are no errors, restart NGINX so the changes take effect:
+
+    sudo systemctl restart nginx
