@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/headfile :: head">
     <title>Fibonacci Sequence</title>
-    <div th:replace="fragments/headfile :: head"></div>
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
@@ -14,15 +13,14 @@
                 <label for="fibField">Type the nth number in the fibonacci sequence?</label>
                 <input name="seq" id="fibField" type="number" min="2" max="93" >
                 <button>Go!</button>
-                <p th:text="'Fibonacci number, ' + ${fib} " />
-                <p th:text="'Fibonacci sequence, ' + ${fibseq} " />
-                <p th:text="'For loop time in  nanos: ' + ${fibfortime} " />
+                <p th:text="'Fibonacci sequence, ' + ${fibseq}"></p>
+                <p th:text="'For loop time in  nanos: ' + ${fibfortime}"></p>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Fdemo%2Ffibonacci%2FFibFor.java%23L8-L13&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:text="'Recursion time in  nanos: ' + ${fibrecursetime} " />
+                <p th:text="'Recursion time in  nanos: ' + ${fibrecursetime}"></p>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Fdemo%2Ffibonacci%2FFibRecurse.java%23L9-L21&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:text="'Stream time in  nanos: ' + ${fibstreamtime} " />
+                <p th:text="'Stream time in  nanos: ' + ${fibstreamtime}"></p>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Fdemo%2Ffibonacci%2FFibStream.java%23L9-L14&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:text="'While loop time in  nanos: ' + ${fibwhiletime} " />
+                <p th:text="'While loop time in  nanos: ' + ${fibwhiletime}"></p>
                 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Fdemo%2Ffibonacci%2FFibWhile.java%23L8-L16&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
             </form>
         </div>
