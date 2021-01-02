@@ -11,10 +11,23 @@
         <div class="row justify-content-left" style="margin: 2%;">
             <h1><strong>REST api for corona virus numbers</strong></h1>
             <form action="/corona" method="GET" id="coronaForm">
-                <button>Get Data!</button>
-                <p th:each="country: ${countries}" th:text="${country}"></p>
+                <button>Refresh!</button>
             </form>
         </div>
+        <table style="margin: 2%" border="1">
+            <tr>
+                <th>Country</th>
+                <th>All-time Cases</th>
+                <th>Recorded Deaths</th>
+                <th>Active Cases</th>
+            </tr>
+            <tr th:each="country : ${countries}">
+                <td th:text="${country.country_name}"></td>
+                <td align="right"  th:text="${country.cases}"></td>
+                <td align="right"  th:text="${country.deaths}"></td>
+                <td align="right"  th:text="${country.active_cases}"></td>
+            </tr>
+        </table>
         <div th:replace="fragments/footer :: footer"></div>
     </div>
 </div>
