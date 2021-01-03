@@ -109,6 +109,7 @@ public class MainController {
         //convert to java hash map
         HashMap map = new ObjectMapper().readValue(response.body(), HashMap.class);
         //pass country stats to view
+        model.addAttribute("data", map);
         model.addAttribute("countries", map.get("countries_stat"));
         return "starters/covid19";
     }

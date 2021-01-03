@@ -4,15 +4,14 @@
     <title>Covid-19 REST API</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<div class="contact" style="height: 35vh;">
-    <div class="contact" style="height: 35vh;">
-        <div class="row justify-content-left" style="margin: 2%;">
-            <h1><strong>REST api for COVID-19...</strong></h1>
-            <form action="/covid19" method="GET" id="covidForm">
-                <button>Refresh!</button>
-            </form>
-        </div>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="row justify-content-left" style="margin: 2%;">
+        <h1><strong>REST api for COVID-19...</strong></h1>
+        <form action="/covid19" method="GET" id="covidForm">
+            <button>Refresh!</button>
+        </form>
+    </div>
+    <div class="countries" style="height: 35vh;">
         <table style="margin: 2%">
             <tr>
                 <th>Country</th>
@@ -31,9 +30,15 @@
                 <td th:text="${country.active_cases}"></td>
             </tr>
         </table>
+        <table style="margin: 2%">
+            <tr>
+                <th>Data</th>
+            </tr>
+                <td th:text="${data}"></td>
+            </tr>
+        </table>
         <div th:replace="fragments/footer :: footer"></div>
     </div>
-</div>
 </body>
 <style>
     table, td, th {
