@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/headfile :: head">
-    <title>REST api Test</title>
+    <title>Covid-19 REST API</title>
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
@@ -9,7 +9,7 @@
     <div class="contact" style="height: 35vh;">
         <div class="row justify-content-left" style="margin: 2%;">
             <h1><strong>REST api for COVID-19...</strong></h1>
-            <form action="/corona" method="GET" id="coronaForm">
+            <form action="/covid19" method="GET" id="covidForm">
                 <button>Refresh!</button>
             </form>
         </div>
@@ -21,9 +21,13 @@
                 <th>Active Cases</th>
             </tr>
             <tr th:each="country : ${countries}">
+                <!--/*@thymesVar id="country_name" type="java"*/-->
                 <td th:text="${country.country_name}"></td>
+                <!--/*@thymesVar id="cases" type="java"*/-->
                 <td th:text="${country.cases}"></td>
+                <!--/*@thymesVar id="deaths" type="java"*/-->
                 <td th:text="${country.deaths}"></td>
+                <!--/*@thymesVar id="active_cases" type="java"*/-->
                 <td th:text="${country.active_cases}"></td>
             </tr>
         </table>

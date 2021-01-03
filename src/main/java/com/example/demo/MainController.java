@@ -4,8 +4,6 @@ package com.example.demo;
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.fibonacci.*;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
-import java.util.Map;
 
 @Controller  // HTTP requests are handled a controller, using the @Controller annotation
 public class MainController {
@@ -99,8 +95,8 @@ public class MainController {
         return "algos/pali";
     }
 
-    @GetMapping("/corona")   // CONTROLLER handles GET request for
-    public String corona(Model model) throws IOException, InterruptedException {
+    @GetMapping("/covid19")   // CONTROLLER handles GET request for
+    public String covid19(Model model) throws IOException, InterruptedException {
         //rapidapi setup
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://corona-virus-world-and-india-data.p.rapidapi.com/api"))
@@ -111,9 +107,9 @@ public class MainController {
         //rapidapi call
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         //convert to java hash map
-        HashMap<String, Object> map = new ObjectMapper().readValue(response.body(), HashMap.class);
+        HashMap map = new ObjectMapper().readValue(response.body(), HashMap.class);
         //pass country stats to view
         model.addAttribute("countries", map.get("countries_stat"));
-        return "starters/corona";
+        return "starters/covid19";
     }
 }
