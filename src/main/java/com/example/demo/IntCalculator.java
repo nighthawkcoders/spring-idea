@@ -14,7 +14,7 @@ public class IntCalculator {
     //Lambda interface definitions
     private IntOp  sqrt = a -> {System.out.print("\"warning integer square\" "); return (int) Math.sqrt(a); };
     private IntOp2 power = (a, b)  -> (int) Math.pow(a, b);
-    private IntOp2 addition = Integer::sum;
+    private IntOp2 addition = Integer::sum; //equivalent to (a, b) -> a + b;
     private IntOp2 subtraction = (a, b) -> a - b;
     private IntOp2 multiplication = (a, b) -> a * b;
     private IntOp2 division = (a, b) -> {System.out.print("\"warning integer divide\" "); return a / b; };
