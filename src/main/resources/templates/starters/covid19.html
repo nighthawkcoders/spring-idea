@@ -6,12 +6,26 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
     <div class="row justify-content-left" style="margin: 2%;">
-        <h1><strong>REST api for COVID-19...</strong></h1>
+        <h1><strong>COVID-19 REST api from rapidapi.com ...</strong></h1>
         <form action="/covid19" method="GET" id="covidForm">
             <button>Refresh!</button>
         </form>
     </div>
     <div class="countries" style="height: 35vh;">
+        <table style="margin: 2%">
+            <tr>
+                <th>Time</th>
+                <th>All-time Cases</th>
+                <th>Recorded Deaths</th>
+                <th>Active Cases</th>
+            </tr>
+            <tr>
+                <td th:text="${world.statistic_taken_at}"></td>
+                <td th:text="${world.total_cases}"></td>
+                <td th:text="${world.total_deaths}"></td>
+                <td th:text="${world.active_cases}"></td>
+            </tr>
+        </table>
         <table style="margin: 2%">
             <tr>
                 <th>Country</th>
