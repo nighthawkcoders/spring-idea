@@ -1,4 +1,4 @@
-package com.example.lessons.fibonacci;
+package com.example.lessons.algos.fibonacci;
 import com.example.lessons.consoleUI.ConsoleMethods;
 
 import java.util.ArrayList;

@@ -3,13 +3,13 @@ package com.example.lessons;
  * Web Content with Spring MVCSpring Example: https://spring.io/guides/gs/serving-web-con
  */
 
-import com.example.lessons.calculate.Palindrome;
+import com.example.lessons.algos.Palindrome;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.example.lessons.fibonacci.*;
+import com.example.lessons.algos.fibonacci.*;
 
 import java.io.IOException;
 import java.net.URI;

@@ -1,4 +1,4 @@
-package com.example.lessons.calculate;
+package com.example.lessons.algos;
 
 import com.example.lessons.consoleUI.ConsoleMethods;
 import java.util.HashMap;

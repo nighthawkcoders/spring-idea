@@ -1,5 +1,5 @@
 package com.example.lessons;
-/* Basic web site that loads index.html, added is route to /hello
+/* Basic web site that loads pbl.html, added is route to /hello
  * From IntelliJ Tutorial - https://www.jetbrains.com/help/idea/your-first-spring-application.html
  */
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);   // Internal magic:
-                                                    // loads index.html page from static folder
+                                                    // loads pbl.html page from static folder
                                                     // run server on localhost:8080
     }
 
