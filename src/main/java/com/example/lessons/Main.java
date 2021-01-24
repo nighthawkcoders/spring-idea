@@ -1,11 +1,9 @@
-package com.example.demo;
+package com.example.lessons;
 /* Basic web site that loads index.html, added is route to /hello
  * From IntelliJ Tutorial - https://www.jetbrains.com/help/idea/your-first-spring-application.html
  */
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication  // explained here - https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#

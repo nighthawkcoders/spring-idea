@@ -1,14 +1,15 @@
-package com.example.demo;
+package com.example.lessons;
 /* MVC code that shows defining a simple Model, calling View, and this file serving as Controller
  * Web Content with Spring MVCSpring Example: https://spring.io/guides/gs/serving-web-con
  */
 
+import com.example.lessons.calculate.Palindrome;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.example.demo.fibonacci.*;
+import com.example.lessons.fibonacci.*;
 
 import java.io.IOException;
 import java.net.URI;

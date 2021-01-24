@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.lessons.calculate;
 
+import com.example.lessons.consoleUI.ConsoleMethods;
 import java.util.HashMap;
 
 public class IntCalculator {
@@ -30,12 +31,12 @@ public class IntCalculator {
     //Signature for one arg calculator
     private void calculate(int a, String op) {
         IntOp method = (IntOp) opMethod.get(op);
-        System.out.println(op + "(" +  a + ")" + " = " + method.op(a));
+        ConsoleMethods.println(op + "(" +  a + ")" + " = " + method.op(a));
     }
     //Signature for two arg calculator
     private void calculate(int a, String op, int b ) {
         IntOp2 method = (IntOp2) opMethod.get(op);
-        System.out.println(a + " " +  op + " " +  b + " = " + method.op(a, b));
+        ConsoleMethods.println(a + " " +  op + " " +  b + " = " + method.op(a, b));
     }
     //Tester
     public static void main(String[] args) {

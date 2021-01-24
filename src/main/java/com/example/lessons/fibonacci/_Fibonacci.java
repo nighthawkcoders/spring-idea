@@ -1,4 +1,6 @@
-package com.example.demo.fibonacci;
+package com.example.lessons.fibonacci;
+import com.example.lessons.consoleUI.ConsoleMethods;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.time.Instant;
@@ -57,31 +59,31 @@ abstract class _Fibonacci {
         int num = 20;   //number of Fibs, 92 is max for long
 
         FibFor fibf = new FibFor(num);
-        System.out.println("For");
-        System.out.println(fibf.getNth());
-        System.out.println(fibf.getNthSeq());
-        System.out.println(fibf.getList());
-        System.out.println(fibf.getHash());
+        ConsoleMethods.println("For");
+        ConsoleMethods.println(fibf.getNth());
+        ConsoleMethods.println(fibf.getNthSeq());
+        ConsoleMethods.println(fibf.getList());
+        ConsoleMethods.println(fibf.getHash());
 
         FibRecurse fibr = new FibRecurse(num);
-        System.out.println("Recurse");
-        System.out.println(fibr.getNth());
-        System.out.println(fibr.getNthSeq());
-        System.out.println(fibr.getList());
-        System.out.println(fibr.getHash());
+        ConsoleMethods.println("Recurse");
+        ConsoleMethods.println(fibr.getNth());
+        ConsoleMethods.println(fibr.getNthSeq());
+        ConsoleMethods.println(fibr.getList());
+        ConsoleMethods.println(fibr.getHash());
 
         FibStream fibs = new FibStream(num);
-        System.out.println("Stream");
-        System.out.println(fibs.getNth());
-        System.out.println(fibs.getNthSeq());
-        System.out.println(fibs.getList());
-        System.out.println(fibs.getHash());
+        ConsoleMethods.println("Stream");
+        ConsoleMethods.println(fibs.getNth());
+        ConsoleMethods.println(fibs.getNthSeq());
+        ConsoleMethods.println(fibs.getList());
+        ConsoleMethods.println(fibs.getHash());
 
         FibWhile fibw = new FibWhile(num);
-        System.out.println("While");
-        System.out.println(fibw.getNth());
-        System.out.println(fibw.getNthSeq());
-        System.out.println(fibw.getList());
-        System.out.println(fibw.getHash());
+        ConsoleMethods.println("While");
+        ConsoleMethods.println(fibw.getNth());
+        ConsoleMethods.println(fibw.getNthSeq());
+        ConsoleMethods.println(fibw.getList());
+        ConsoleMethods.println(fibw.getHash());
     }
 }

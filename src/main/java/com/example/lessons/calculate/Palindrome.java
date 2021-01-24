@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.example.lessons.calculate;
 
-import com.example.demo.UItext.ConsoleMethods;
-import java.time.Instant;
-import java.time.Duration;
+import com.example.lessons.consoleUI.ConsoleMethods;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.Instant;
+import java.time.Duration;
 
 /**
  * Evaluates String as palindrome

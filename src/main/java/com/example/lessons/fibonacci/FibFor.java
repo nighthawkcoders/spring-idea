@@ -1,4 +1,4 @@
-package com.example.demo.fibonacci;
+package com.example.lessons.fibonacci;
 
 public class FibFor extends _Fibonacci {
     public FibFor(int nth) {

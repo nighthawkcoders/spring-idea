@@ -1,4 +1,4 @@
-package com.example.demo.fibonacci;
+package com.example.lessons.fibonacci;
 import java.util.stream.*;
 
 public class FibStream extends _Fibonacci {

@@ -1,4 +1,4 @@
-package com.example.demo.UItext;
+package com.example.lessons.consoleUI;
 
 public class ConsoleMethods {
 
