@@ -23,7 +23,7 @@ Notes:
 </OL>
 
 # How to deploy Spring on Raspberry Pi
-Basic ides is to run a JAR.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
+A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
 ![Visual of Web Service](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/javaservlets.png)
 
 First you need to install Java on your Raspberry Pi.  The default as of this writing is OpenJDK 11.
@@ -31,7 +31,7 @@ First you need to install Java on your Raspberry Pi.  The default as of this wri
     pi@raspberrypi:~ $ sudo apt update; sudo apt upgrade
     pi@raspberrypi:~ $ sudo apt install default-jdk
 
-To run and start the JAR automatically it will require a .service file that executes the JAR file. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is mimicking what IntelliJ produces. Create a file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
+To run and start application automatically it will require a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is mimicking what IntelliJ produces. Create a file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
 
     [Unit]
     Description=Java
