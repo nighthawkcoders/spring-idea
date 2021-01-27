@@ -2,15 +2,19 @@
 Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes.
 
 ## Instruction for IntelliJ IDEA beginner
-To get started, you can spend time with these links:
 
+Be sure to upgraded to IntelliJ Ultimate!!!  Then to get started, you can spend time with these links:
+
+Hello World:
 [Jetbrains on beginning your own project](https://www.jetbrains.com/help/idea/your-first-spring-application.html)
 
+@SpringBootApplication:
 [Understanding Spring and Springboot Annotations](https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#)
 
+Everything about Spring: 
 [Spring Homesite](https://spring.io/)
 
-## Or start with this project and try to understand it.
+## Or you can start with this project and try to understand it.  But I would recommend some time with beginner links.
 <OL> 
 <LI>Using IntelliJ clone Repo</LI>
 <LI>Run main method in src/main/java/com.example.demo/Hello.java</LI>

@@ -18,7 +18,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 
-@Controller  // HTTP requests are handled a controller, using the @Controller annotation
+@Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class MainController {
 
     @GetMapping("/greet")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
