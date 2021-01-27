@@ -1,20 +1,7 @@
 # The spring-idea repo is a very simple introduction to Spring
-Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes.
+Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes, it has no real project purpose.
 
-## Instruction for IntelliJ IDEA beginner
-
-Be sure to upgraded to IntelliJ Ultimate!!!  Then to get started, you can spend time with these links:
-
-Hello World:
-[Jetbrains on beginning your own project](https://www.jetbrains.com/help/idea/your-first-spring-application.html)
-
-@SpringBootApplication:
-[Understanding Spring and Springboot Annotations](https://dzone.com/articles/the-springbootapplication-annotation-example-in-ja#)
-
-Everything about Spring: 
-[Spring Homesite](https://spring.io/)
-
-## Or you can start with this project and try to understand it.  But I would recommend some time with beginner links.
+## Run this project and try to understand some of its parts.  Be sure to upgraded to IntelliJ IDEA Ultimate!!!  Then clone it.
 <OL> 
 <LI>Using IntelliJ clone Repo</LI>
 <LI>Run main method in src/main/java/com.example.demo/Hello.java</LI>
@@ -22,9 +9,22 @@ Everything about Spring:
 </OL>
 Notes:
 <OL>
-<LI>The src/resources/templates/index.html is the default HTML page. Not technically interesting until you examine ThymeLeaf fragments (headfile.html, header.html, footer.html).</LI>
-<LI> Find Main.java and MainContoller.java to understand routes. This will help you find code behind HTML</LI>
+<LI>The src/resources/templates/index.html is the default HTML page. It introduces some things in this project.</LI>  
+<LI>Examine ThymeLeaf fragments (headfile.html, header.html, footer.html) to get familiar with Templates and see how they are included in other html files.</LI>
+<LI>Find Main.java and MainContoller.java to understand annotations and routes. This will help you learn code behind HTML</LI>
 </OL>
+
+
+## Instruction for Spring/Java beginning developer
+
+To get started with development, you should spend time with these links:
+
+Hello World:
+[Jetbrains on beginning your own project](https://www.jetbrains.com/help/idea/your-first-spring-application.html)
+
+Everything about Spring from sping.io:
+[Spring Homesite](https://spring.io/)
+
 
 # How to deploy Spring on Raspberry Pi
 A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
