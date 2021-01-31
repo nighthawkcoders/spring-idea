@@ -101,6 +101,10 @@ Login into your AWS IAM user, search for EC2.
 To get started, launch an Amazon EC2 instance, which is a virtual server in the cloud.
 ![Launch EC2 instance](assets/ec2launch.png)
 
+Step 1: Choose an Amazon Machine Image (AMI)Cancel and Exit
+An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance. Ubuntu is a free tier operating system that uses the Linux kernel.
+![Select EC2 OS](assets/ec2os.png)
+
 
     Pick Ubuntu as the os version 20.04
 
