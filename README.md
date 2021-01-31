@@ -25,13 +25,13 @@ Hello World:
 Everything about Spring from sping.io:
 [Spring Homesite](https://spring.io/)
 
-At the end of each development cycle it is a good practice to create a self-contained JAR file for deployment.  IJ can delegate Maven to build Jar that works for deployment (Build,Execution,Depoyment > Build Tools > Maven > Runner)
-Select the wrench on Maven screen
+At the end of each development cycle it is a good practice to create a self-contained JAR file for deployment.  IJ can delegate Maven to build Jar that works for deployment (Build,Execution,Depoyment > Build Tools > Maven > Runner). Start by picking "Maven" off of right boarder of IJ.
 ![Maven](assets/maven.png)
-Navigate to Maven Settings, drill into Maven > Runner and enable "Delegate IDE build/run actions to Maven"
+Click-on the "Wrench" on Maven screen. Navigate to Maven Settings.
 ![Delegate IDE](assets/mavenrunner.png)
-After enabling use the hammer to build (not the play) to produce VERY USEFUL deployment Jar which is created in target path of project.
+Drill into Maven > Runner and enable "Delegate IDE build/run actions to Maven" 
 ![Deployable Jar file](assets/target.png)
+Use the "Hammer" to build (not the "Play") this will produce a VERY USEFUL deployment Jar which is created in "Target" path as shown.
 
 
 # How to deploy Spring on Raspberry Pi
