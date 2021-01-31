@@ -25,12 +25,16 @@ Hello World:
 Everything about Spring from sping.io:
 [Spring Homesite](https://spring.io/)
 
-At the end of each development cycle it is a good practice to create a self-contained JAR file for deployment.  IJ can delegate Maven to build Jar that works for deployment (Build,Execution,Depoyment > Build Tools > Maven > Runner)
-Select the wrench on Maven screen
+At the end of each development cycle it is a good practice to create a self-contained JAR file for deployment.  IntelliJ (IJ) can delegate Maven to build a Jar that works for deployment.  This file can be copied to a new host and run according to deployment instructions in the document.
+
+Start by picking "Maven" off of right boarder of IJ.  Click-on the "Wrench" on Maven screen. Navigate to Maven Settings.
 ![Maven](assets/maven.png)
-Navigate to Maven Settings, drill into Maven > Runner and enable "Delegate IDE build/run actions to Maven"
+
+Drill into Maven > Runner (Build,Execution,Depoyment > Build Tools > Maven > Runner).  Click and Apply setting "Delegate IDE build/run actions to Maven". 
 ![Delegate IDE](assets/mavenrunner.png)
-After enabling use the hammer to build (not the play) to produce VERY USEFUL deployment Jar which is created in target path of project.
+
+Returning to IJ Project work use the "Hammer" to build (not the traditional "Play") this will produce a VERY USEFUL deployment Jar which is created in "Target" path as shown.
+
 ![Deployable Jar file](assets/target.png)
 
 
@@ -90,3 +94,30 @@ Test the configuration to make sure there are no errors:
 If there are no errors, restart NGINX so the changes take effect:
 
     pi@raspberrypi:~ $ sudo systemctl restart nginx
+    
+# How to deploy Spring on Amazon Web Services (AWS)
+To start you will need to login into your IAM user and create an EC2 instance
+
+    Pick Ubuntu as the os version 20.04
+
+    Choose x64 for the kernel
+
+    Then select T2 mico
+
+    Keep the settings at default
+
+    For storage leave it at 8 gibs you get 30 for free across all ec2 instances
+
+    For tags I add a name for each of my instances to keep track of them
+
+    For this next part under ssh port 22 select my ip, advance( if you know your assigned dynamic cidr from isp you can enter that in)
+
+    Review and launch you EC2
+
+    Download the key pair file used authenticate when signing into the computer
+
+To login into the EC2 instance you will use SSH (secure shell)
+ssh -i <keypair.pem> ubuntu@ipv4
+
+The remaining procedures should be the same as a Raspberry Pi
+
