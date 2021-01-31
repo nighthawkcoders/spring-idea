@@ -25,9 +25,17 @@ Hello World:
 Everything about Spring from sping.io:
 [Spring Homesite](https://spring.io/)
 
+At the end of each development cycle it is a good practice to create a self-contained JAR file for deployment.  IJ can delegate Maven to build Jar that works for deployment (Build,Execution,Depoyment > Build Tools > Maven > Runner)
+Select the wrench on Maven screen
+![Maven](assets/maven.png)
+Navigate to Maven Settings, drill into Maven > Runner and enable "Delegate IDE build/run actions to Maven"
+![Delegate IDE](assets/mavenrunner.png)
+After enabling use the hammer to build (not the play) to produce VERY USEFUL deployment Jar which is created in target path of project.
+![Deployable Jar file](assets/target.png)
+
 
 # How to deploy Spring on Raspberry Pi
-A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
+Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
 ![Visual of Web Service](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/javaservlets.png)
 
 First you need to install Java on your Raspberry Pi.  The default as of this writing is OpenJDK 11.
@@ -35,7 +43,7 @@ First you need to install Java on your Raspberry Pi.  The default as of this wri
     pi@raspberrypi:~ $ sudo apt update; sudo apt upgrade
     pi@raspberrypi:~ $ sudo apt install default-jdk
 
-To run and start application automatically it will require a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is mimicking what IntelliJ produces. Create a file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
+To run and start application automatically it will require a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is running a JAR file. Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
 
     [Unit]
     Description=Java
@@ -44,7 +52,7 @@ To run and start application automatically it will require a .service file that 
     [Service]
     User=pi
     Restart=always
-    ExecStart=/usr/lib/jvm/java-1.11.0-openjdk-armhf/bin/java -XX:TieredStopAtLevel=1 -noverify -Dspring.output.ansi.enabled=always -javaagent:/home/pi/idea/lib/idea_rt.jar=37035:/home/pi/idea/bin -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dfile.encoding=UTF-8 -classpath /home/pi/IdeaProjects/spring-idea/target/classes:/home/pi/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/2.4.1/spring-boot-starter-thymeleaf-2.4.1.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-starter/2.4.1/spring-boot-starter-2.4.1.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.4.1/spring-boot-starter-logging-2.4.1.jar:/home/pi/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/pi/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/pi/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.13.3/log4j-to-slf4j-2.13.3.jar:/home/pi/.m2/repository/org/apache/logging/log4j/log4j-api/2.13.3/log4j-api-2.13.3.jar:/home/pi/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar:/home/pi/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/home/pi/.m2/repository/org/yaml/snakeyaml/1.27/snakeyaml-1.27.jar:/home/pi/.m2/repository/org/thymeleaf/thymeleaf-spring5/3.0.11.RELEASE/thymeleaf-spring5-3.0.11.RELEASE.jar:/home/pi/.m2/repository/org/thymeleaf/thymeleaf/3.0.11.RELEASE/thymeleaf-3.0.11.RELEASE.jar:/home/pi/.m2/repository/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar:/home/pi/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/home/pi/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/home/pi/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-java8time/3.0.4.RELEASE/thymeleaf-extras-java8time-3.0.4.RELEASE.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.4.1/spring-boot-starter-web-2.4.1.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.4.1/spring-boot-starter-json-2.4.1.jar:/home/pi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.11.3/jackson-databind-2.11.3.jar:/home/pi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.3/jackson-annotations-2.11.3.jar:/home/pi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.11.3/jackson-core-2.11.3.jar:/home/pi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.11.3/jackson-datatype-jdk8-2.11.3.jar:/home/pi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.11.3/jackson-datatype-jsr310-2.11.3.jar:/home/pi/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.3/jackson-module-parameter-names-2.11.3.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.4.1/spring-boot-starter-tomcat-2.4.1.jar:/home/pi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.41/tomcat-embed-core-9.0.41.jar:/home/pi/.m2/repository/org/glassfish/jakarta.el/3.0.3/jakarta.el-3.0.3.jar:/home/pi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.41/tomcat-embed-websocket-9.0.41.jar:/home/pi/.m2/repository/org/springframework/spring-web/5.3.2/spring-web-5.3.2.jar:/home/pi/.m2/repository/org/springframework/spring-beans/5.3.2/spring-beans-5.3.2.jar:/home/pi/.m2/repository/org/springframework/spring-webmvc/5.3.2/spring-webmvc-5.3.2.jar:/home/pi/.m2/repository/org/springframework/spring-aop/5.3.2/spring-aop-5.3.2.jar:/home/pi/.m2/repository/org/springframework/spring-context/5.3.2/spring-context-5.3.2.jar:/home/pi/.m2/repository/org/springframework/spring-expression/5.3.2/spring-expression-5.3.2.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-devtools/2.4.1/spring-boot-devtools-2.4.1.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot/2.4.1/spring-boot-2.4.1.jar:/home/pi/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.4.1/spring-boot-autoconfigure-2.4.1.jar:/home/pi/.m2/repository/org/springframework/spring-core/5.3.2/spring-core-5.3.2.jar:/home/pi/.m2/repository/org/springframework/spring-jcl/5.3.2/spring-jcl-5.3.2.jar com.example.lessons.Main
+    ExecStart=java -jar /home/pi/IdeaProjects/spring-idea/target/serving-web-content-0.0.1-SNAPSHOT.jar
     [Install]
     WantedBy=multi-user.target 
  
