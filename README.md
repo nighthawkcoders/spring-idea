@@ -123,17 +123,9 @@ Tag your Amazon EC2 resources.  This is not required but you could name your vol
 A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add rules to allow specific traffic to reach your instance. In this example, a web server is setup to allow Internet traffic to reach EC2 instance, this allows unrestricted access to the HTTP and HTTPS ports.  Also, this example restricts SSH from my IP.
 ![Select EC2 OS](assets/ec2security.png)
 
+## Step 7: Review Instance Launch
+Review your instance launch details. Click Launch to assign a key pair to your instance and complete the launch process.
 
-
-    Keep the settings at default
-
-    For storage leave it at 8 gibs you get 30 for free across all ec2 instances
-
-    For tags I add a name for each of my instances to keep track of them
-
-    For this next part under ssh port 22 select my ip, advance( if you know your assigned dynamic cidr from isp you can enter that in)
-
-    Review and launch you EC2
 
     Download the key pair file used authenticate when signing into the computer
 
