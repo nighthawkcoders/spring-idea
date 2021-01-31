@@ -96,7 +96,11 @@ If there are no errors, restart NGINX so the changes take effect:
     pi@raspberrypi:~ $ sudo systemctl restart nginx
     
 # How to deploy Spring on Amazon Web Services (AWS)
-To start you will need to login into your IAM user and create an EC2 instance
+Login into your AWS IAM user, search for EC2.
+
+To get started, launch an Amazon EC2 instance, which is a virtual server in the cloud.
+![Launch EC2 instance](assets/ec2launch.png)
+
 
     Pick Ubuntu as the os version 20.04
 
