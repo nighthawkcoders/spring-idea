@@ -34,6 +34,7 @@ Drill into Maven > Runner (Build,Execution,Depoyment > Build Tools > Maven > Run
 ![Delegate IDE](assets/mavenrunner.png)
 
 Returning to IJ Project work use the "Hammer" to build (not the traditional "Play") this will produce a VERY USEFUL deployment Jar which is created in "Target" path as shown.
+
 ![Deployable Jar file](assets/target.png)
 
 
