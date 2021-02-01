@@ -98,18 +98,22 @@ Review your instance launch details. Click Launch to assign a key pair to your i
 
 # Start a terminal session on you localhost.  
 
-## Manage your PEM file
 
-Renamed and moved to SSH configuration directory, setting permission on my PEM file to protect it:
-
-   MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem ~/.ssh/ec2spring.pem
-   MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 ~/.ssh/ec2spring.pem
    
 ## SSH (secure shell) to your EC2 machine
    
 ### MacOS login into the EC2 instance using SSH
 
-   MacBook-Pro-2:~ johnmortensen$ sudo ssh -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
+Manage your PEM file, rename and move to SSH configuration directory, setting permission on my PEM file to protect it:
+  
+   MacBook-Pro-2:~ johnmortensen$ cd
+   MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem .ssh/ec2spring.pem
+   MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 .ssh/ec2spring.pem
+
+SSH command
+
+   MacBook-Pro-2:~ johnmortensen$ cd
+   MacBook-Pro-2:~ johnmortensen$ sudo ssh -i .ssh/ec2spring.pem ubuntu@52.34.146.159
    
 This should lead you to a NEW terminal prompt on ubuntu:
 
