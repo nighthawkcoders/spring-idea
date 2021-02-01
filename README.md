@@ -38,7 +38,7 @@ Returning to IJ Project work use the "Hammer" to build (not the traditional "Pla
 ![Deployable Jar file](assets/target.png)
 
 
-# How to deploy Spring on Raspberry Pi
+# How to deploy Spring on Raspberry Pi OS and Ubuntu, prompts are for Rapberry Pi OS, but commands and files should be the same for both
 Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
 ![Visual of Web Service](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/javaservlets.png)
 
@@ -126,11 +126,28 @@ A security group is a set of firewall rules that control the traffic for your in
 ## Step 7: Review Instance Launch
 Review your instance launch details. Click Launch to assign a key pair to your instance and complete the launch process.
 
+![Build EC2 Keypair](assets/ec2keypair.png)
 
-    Download the key pair file used authenticate when signing into the computer
+## Now you are ready to work with terminal on you machine and connect to your Ubuntu hosts.  Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
 
+![Find EC2 IPv4](assets/ec2iov4.png)
+
+## Local Machine Terminal session to manage PEM file
+
+renamed and set permission on my keypaire file to protect it:
+
+   MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem ~/.ssh/ec2spring.pem
+   MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 ~/.ssh/ec2spring.pem
+   
+## Manage PEM file
+   
 To login into the EC2 instance you will use SSH (secure shell)
-ssh -i <keypair.pem> ubuntu@ipv4
 
-The remaining procedures should be the same as a Raspberry Pi
+   MacBook-Pro-2:~ johnmortensen$ sudo ssh -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
+   
+This should lead you to a NEW terminal prompt on ubuntu:
+
+   ubuntu@ip-172-31-30-21:~$
+   
+You are now ready to start Deployment procedures.
 
