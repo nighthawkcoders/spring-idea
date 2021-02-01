@@ -41,9 +41,6 @@ Returning to IJ Project work use the "Hammer" to build (not the traditional "Pla
 
 # Deployment procedures for Spring on Raspberry Pi OS or Ubuntu,
 Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
-![Visual of Web Service](assets/javaservlets.png)
-
-Prompts and Procedures.  The prompts are using Raspberry Pi OS, the commands and configurations should work for Raspberry Pi OS and Ubuntu.
 
 First you need to install Java on your OS.  The default as of this writing is OpenJDK 11 for both Raspberry Pi OS and Ubuntu.
 
@@ -84,8 +81,12 @@ Running these commands will enable or disable service at a reboot:
     pi@raspberrypi:~ $ sudo systemctl disable <my_service_file>.service
 
 ## Nginx service configuration
-Now that the Spring application is running as a service, an NGINX proxy allows opening the application to an unprivileged port and setting up SSL.
-Create an NGINX configuration for the reverse proxy, File: /etc/nginx/conf.d/<my_nginx_file>.conf
+Now that the Spring application is running as a service, an Nginx proxy allows opening the application to an unprivileged port and setting up SSL.
+
+Install Nginx
+    pi@raspberrypi:~ $ sudo apt install nginx
+
+Create an Nginx configuration for the reverse proxy, File: /etc/nginx/sites-availble/<my_nginx_file>
     
     server {
         listen 80;
@@ -103,6 +104,7 @@ Create an NGINX configuration for the reverse proxy, File: /etc/nginx/conf.d/<my
 ## Nginx service commands
 Test the configuration to make sure there are no errors:
 
+    pi@raspberrypi:~ $ sudo ln -s /etc/nginx/sites-available/<my_nginx_file> /etc/nginx/sites-enabled
     pi@raspberrypi:~ $ sudo nginx -t
 
 If there are no errors, restart NGINX so the changes take effect:
