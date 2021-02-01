@@ -41,7 +41,7 @@ Returning to IJ Project work use the "Hammer" to build (not the traditional "Pla
 
 # Deployment procedures for Spring on Raspberry Pi OS or Ubuntu,
 Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
-![Visual of Web Service](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/javaservlets.png)
+![Visual of Web Service](assets/javaservlets.png)
 
 Prompts and Procedures.  The prompts are using Raspberry Pi OS, the commands and configurations should work for Raspberry Pi OS and Ubuntu.
 
