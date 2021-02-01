@@ -38,16 +38,28 @@ Returning to IJ Project work use the "Hammer" to build (not the traditional "Pla
 ![Deployable Jar file](assets/target.png)
 
 
-# How to deploy Spring on Raspberry Pi OS and Ubuntu, prompts are for Rapberry Pi OS, but commands and files should be the same for both
-Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
+
+# Deployment procedures for Spring on Raspberry Pi OS or Ubuntu,
+Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
 ![Visual of Web Service](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/javaservlets.png)
 
-First you need to install Java on your Raspberry Pi.  The default as of this writing is OpenJDK 11.
+Prompts and Procedures.  The prompts are using Raspberry Pi OS, the commands and configurations should work for Raspberry Pi OS and Ubuntu.
+
+First you need to install Java on your OS.  The default as of this writing is OpenJDK 11 for both Raspberry Pi OS and Ubuntu.
 
     pi@raspberrypi:~ $ sudo apt update; sudo apt upgrade
     pi@raspberrypi:~ $ sudo apt install default-jdk
+    
+## Move JAR file to your deployment host.  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS
 
-To run and start application automatically it will require a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is running a JAR file. Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
+   MacBook-Pro-2:~ sftp -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
+    Connected to ubuntu@52.34.146.159.
+    sftp> put serving-web-content-0.0.1-SNAPSHOT.jar
+    Uploading serving-web-content-0.0.1-SNAPSHOT.jar to /home/ubuntu/serving-web-content-0.0.1-SNAPSHOT.jar
+    serving-web-content-0.0.1-SNAPSHOT.jar        100%   18MB   1.8MB/s   00:09  
+
+## Java service configuration
+To run and start application automatically it will require a JAR file from previous step and a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is running a JAR file. Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
 
     [Unit]
     Description=Java
@@ -60,6 +72,7 @@ To run and start application automatically it will require a .service file that 
     [Install]
     WantedBy=multi-user.target 
  
+## Java service commands using systemctl
 Running these commands will test your service:
  
     pi@raspberrypi:~ $ sudo systemctl start <my_service_file>.service
@@ -70,6 +83,7 @@ Running these commands will enable or disable service at a reboot:
     pi@raspberrypi:~ $ sudo systemctl enable <my_service_file>.service
     pi@raspberrypi:~ $ sudo systemctl disable <my_service_file>.service
 
+## Nginx service configuration
 Now that the Spring application is running as a service, an NGINX proxy allows opening the application to an unprivileged port and setting up SSL.
 Create an NGINX configuration for the reverse proxy, File: /etc/nginx/conf.d/<my_nginx_file>.conf
     
@@ -86,7 +100,7 @@ Create an NGINX configuration for the reverse proxy, File: /etc/nginx/conf.d/<my
             }
     }
 
-
+## Nginx service commands
 Test the configuration to make sure there are no errors:
 
     pi@raspberrypi:~ $ sudo nginx -t
@@ -128,18 +142,20 @@ Review your instance launch details. Click Launch to assign a key pair to your i
 
 ![Build EC2 Keypair](assets/ec2keypair.png)
 
-## Now you are ready to work with terminal on you machine and connect to your Ubuntu hosts.  Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
+## Before you leave your ADMIN session on AWS go to EC2 running instances and find your IPV4 address.
 
-![Find EC2 IPv4](assets/ec2iov4.png)
+![Find EC2 IPv4](assets/ec2ipv4.png)
 
-## Local Machine Terminal session to manage PEM file
+# Start a terminal session on you localhost.  
 
-renamed and set permission on my keypaire file to protect it:
+## Manage your PEM file
+
+Renamed and moved to SSH configuration directory, setting permission on my PEM file to protect it:
 
    MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem ~/.ssh/ec2spring.pem
    MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 ~/.ssh/ec2spring.pem
    
-## Manage PEM file
+## SSH to your EC2 machine
    
 To login into the EC2 instance you will use SSH (secure shell)
 
@@ -149,5 +165,5 @@ This should lead you to a NEW terminal prompt on ubuntu:
 
    ubuntu@ip-172-31-30-21:~$
    
-You are now ready to start Deployment procedures.
+## From Ubuntu shell you are ready to proceed with Deployment procedures above.
 
