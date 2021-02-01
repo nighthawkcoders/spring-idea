@@ -140,9 +140,9 @@ First you need to install Java on your OS.  The default as of this writing is Op
     pi@raspberrypi:~ $ sudo apt update; sudo apt upgrade
     pi@raspberrypi:~ $ sudo apt install default-jdk
     
-## Move JAR file to your deployment host.  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS
+## Move JAR file to your deployment host with sftp (secure file transfer protocol).  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS
 
-   MacBook-Pro-2:~ sftp -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
+    MacBook-Pro-2:~ sftp -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
     Connected to ubuntu@52.34.146.159.
     sftp> put serving-web-content-0.0.1-SNAPSHOT.jar
     Uploading serving-web-content-0.0.1-SNAPSHOT.jar to /home/ubuntu/serving-web-content-0.0.1-SNAPSHOT.jar
