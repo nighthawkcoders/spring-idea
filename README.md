@@ -105,9 +105,9 @@ Renamed and moved to SSH configuration directory, setting permission on my PEM f
    MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem ~/.ssh/ec2spring.pem
    MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 ~/.ssh/ec2spring.pem
    
-## SSH to your EC2 machine
+## SSH (secure shell) to your EC2 machine
    
-To login into the EC2 instance you will use SSH (secure shell)
+### MacOS login into the EC2 instance using SSH
 
    MacBook-Pro-2:~ johnmortensen$ sudo ssh -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
    
@@ -115,6 +115,7 @@ This should lead you to a NEW terminal prompt on ubuntu:
 
    ubuntu@ip-172-31-30-21:~$
    
+### Windos login into ECW using SSH using puTTY
 To SSH on a windows machine you will need to use [puTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). (Download correct bit installer and keep default settings).
 
 Add your EC2 instance ip into the putTTY IP bar and keep the port set as 22 (The standard SSH port)
