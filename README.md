@@ -115,6 +115,16 @@ This should lead you to a NEW terminal prompt on ubuntu:
 
    ubuntu@ip-172-31-30-21:~$
    
+To SSH on a windows machine you will need to use [puTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). (Download correct bit installer and keep default settings).
+
+Add your EC2 instance ip into the putTTY IP bar and keep the port set as 22 (The standard SSH port)
+![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/putty.png)
+
+Open the puTTYgen app, (not puTTY), select "RSA: at the bottom and then click "load". Choose the .pem file downloaded from AWS earlier. Click "save private key" and click yes if you get a warning. Save this new .ppk file safely.
+![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/puttygen.png)
+
+In the navigation bar at the left, expand "SSH" and select "Auth". Under "private Key File for authentication" click browse change the setting to search for all files and select the .pem file downloaded from AWS in the previous step. Click Open to start the connection, if you get a warning message just click yes. Log in as "ec2-user". Now you have access to the ubuntu machine.
+![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/puttyauth.png)
 
 
 # Instruction on deploying Spring/Java Jar file to Raspberry Pi OS or AWS EC2 Ubuntu
