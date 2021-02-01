@@ -38,8 +38,26 @@ Returning to IJ Project work use the "Hammer" to build (not the traditional "Pla
 ![Deployable Jar file](assets/target.png)
 
 
+# Instruction purchasing a Raspberry Pi and preparing for Webserver deployment
+Purchase a Raspberry Pi.  Here are some common specification.
+<li> Raspberry Pi 4 4GB Model B with 1.5GHz 64-bit quad-core CPU (4GB RAM) </li>
+<li> 32GB Samsung EVO+ Micro SD Card (Class 10) Pre-loaded with NOOBS, USB MicroSD Card Reader </li>
+<li> Raspberry Pi 4 Case </li>
+<li> 3.5A USB-C Raspberry Pi 4 Power Supply (US Plug) with Noise Filter</li>
+<li> Set of Heat Sinks</li>
+<li> Micro HDMI to HDMI Cable - 6 foot (Supports up to 4K 60p) </li>
+<li> USB-C PiSwitch (On/Off Power Switch for Raspberry Pi 4) </li>
 
-# Instruction on preparing AWS EC2 instance for deployment
+Purchase Notes:  Keyboard, Mouse, Monitor are optional.  RPi advantages over AWS: 1. One time cost  2. All kinds of tinker projects in IOT realm can be performed using GPIO pins.  As for purchase options, CanaKit (my prefered) has options on Amazon that meet the bulleted list of requirements. There is a new option on raspberrypi.org that describes RPi as built into a keybaord (could be bulky in my use cases).   
+
+Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple.  At boot select Raspberry Pi OS and you are on your way.  Since this will be private IP host on your home network, Port Forwarding is required to make your website visible on the Internet. 
+
+Runtime Notes: Mostly I use VNC Viewer to connect to the RPi.  This is a full desktop remote display tool.  RealVNC lets you share full desktop with cohorts.  If you reboo RPi, you need a monitor connected at reboot to maintain VNC functionality.  Reboot will cause screen buffer not to be recognized unless HDMI is present. 
+ 
+
+
+
+# Instruction on preparing AWS EC2 instance for Webserver deployment
 Login into your AWS IAM user, search for EC2.
 
 To get started, launch an Amazon EC2 instance, which is a virtual server in the cloud.
