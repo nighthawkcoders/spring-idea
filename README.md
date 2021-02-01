@@ -15,7 +15,7 @@ Notes:
 </OL>
 
 
-## Instruction for Spring/Java beginning developer
+## Instruction for Spring/Java developer
 
 To get started with development, you should spend time with these links:
 
