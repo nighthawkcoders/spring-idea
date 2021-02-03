@@ -4,7 +4,7 @@ Purpose of this repo is to build up the very basics of Spring and Java.  This is
 ## Run this project and try to understand some of its parts.  Be sure to upgraded to IntelliJ IDEA Ultimate!!!  Then clone it.
 <OL> 
 <LI>Using IntelliJ clone Repo</LI>
-<LI>Run main method in src/main/java/com.example.demo/Hello.java</LI>
+<LI>Run main method in src/main/java/com.example.lessons/Main.java</LI>
 <LI>In browser type: localhost:8080</LI>
 </OL>
 Notes:
