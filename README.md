@@ -151,6 +151,17 @@ First you need to install Java on your OS.  The default as of this writing is Op
     Uploading serving-web-content-0.0.1-SNAPSHOT.jar to /home/ubuntu/serving-web-content-0.0.1-SNAPSHOT.jar
     serving-web-content-0.0.1-SNAPSHOT.jar        100%   18MB   1.8MB/s   00:09  
 
+If you are using windows you can transfer files from your computer to your AWS ubuntu machine using [WinSCP](https://winscp.net/eng/index.php). Download and install the version for your computer. Once the program opens, click the "New Session" button. Put your IPV4 address in the hostname box and "ubuntu" as the username.
+
+![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/winscp.png)
+
+To load your private key click "Advanced" then open the "SSH" dropdown and choose "Authentication". Choose your private key here...
+![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/advancedppk.png)
+
+Then click "Login" to start the SFTP server connection. Your files will be on the left and your virtual machines files will be on the right. Drag your JAR file from your desktop into the your ubuntu machine.
+![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/jarupload.png)
+
+
 ## Java service configuration
 To run and start application automatically it will require a JAR file from previous step and a .service file that executes java. In this service file we are providing details the service: it should start after “network.target” has been started, ExecStart is the command that executes the service, currently this is running a JAR file. Create a 'service' file like the one below and place it in: /etc/systemd/system/<your_service_file>.service
 
