@@ -1,14 +1,20 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- Head, think of things that are more meta or format oriented -->
 <head th:replace="fragments/headfile :: head">
     <title>Spring Intro</title>
 </head>
+
 <body>
+    <!-- Header of Page, includes Navigation -->
     <div th:replace="fragments/header :: header"></div>
 
+    <!-- Body of Page, the details of this pages -->
     <div id="articles" class="screen" style="margin: 30px;">
         <h1><strong>Java and Spring</strong></h1>
-        <h4>By: John Mortensen</h4>
         <h3><strong>What is Spring?</strong></h3>
         <ol>
             <li>Spring Framework is the most popular application development framework of Java. </li>
@@ -16,24 +22,20 @@
             <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
             <li>ThymeLeaf is a server-side Java template engine, support HTML5 JVM web development, and provides full integration with Spring Framework.</li>
         </ol>
-        <h1><strong>How does Spring fit with AP Computer Science A?</strong></h1>
-        <ol>
-            <li>Communication is key as we work in Virtual Learning. Desktop development does not foster collaboration we need in 2020-2021 learning environment.</li>
-            <li>Java is backend complement to Web and Cloud. Often frontend complements are HTML, JS, and PHP.</li>
-            <li>Computer Science A is a Career Technical Education course.  Two purposes are College and Career Technical education.</li>
-        </ol>
         <h1><strong>What should Java Developers learn?</strong></h1>
         <ol>
-            <li>DevOps. Java programmers should have a passion for managing the environment and learning automation.  Maven and Gradle.</li>
+            <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation.  Maven or Gradle.</li>
             <li>Git/GitHub.  Learning to master managing change, branches, pull requests.</li>
             <li>Java 9-15. Jigsaw, Reactive Streams, Process API, HTTP2 client, JShell, ...</li>
             <li>Spring Framework. Reactive programming model on Spring 5, adoption of recent Java features, unit testing</li>
             <li>REST services using Spring.  Mastering creating and consuming RESTful APIs</li>
-            <li>Microservices are nothing but an extension of RESTful web services with the main objective being to break up your code into small, distributed, and independent services.</li>
-            <li>Angular 2+ or React JS. These two JavaScript framework has completely changed how you develop web applications.</li>
-            <li>Docker and Kubernetes.  DevOps key tools for managing servers, configuration, and scale.</li>
+            <li>Microservices are nothing but an extension of RESTful Web services with the main objective being to break up your code into small, distributed, and independent services.</li>
+            <li>React JS. This JavaScript framework has completely changed how you develop web applications.</li>
+            <li>Deployment Devops. Things like Docker and Kubernetes.  Understanding Nginix and other tools for managing servers, configuration, and scale.</li>
         </ol>
     </div>
+
+    <!-- Footer of Page, includes things like contacts or copywrite -->
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

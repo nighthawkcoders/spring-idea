@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,18 +14,33 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Common style for site -->
     <style>
-        body {
-            padding: 25px;
-            background-color: black;
-            color: white;
-            font-size: 25px;
+
+        :root{
+            --white: whitesmoke;
+            --black: black;
+            --grey: grey;
+        }
+
+        .row{
+            margin: auto;
+        }
+
+        body{
+            animation: fadein 2s;
+            -moz-animation: fadein 2s; /* Firefox */
+            -webkit-animation: fadein 2s; /* Safari and Chrome */
+            -o-animation: fadein 2s; /* Opera */
+            background-color: var(--grey);
+            color: var(--black);
         }
 
         .dark-mode {
-            background-color: white;
-            color: black;
+            background-color: var(--white);
+            color: var(--black);
         }
+
     </style>
 
 </head>
