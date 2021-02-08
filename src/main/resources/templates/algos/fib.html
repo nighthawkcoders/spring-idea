@@ -7,22 +7,26 @@
 <div th:replace="fragments/header :: header"></div>
 <div class="contact" style="height: 35vh;">
     <div class="contact" style="height: 35vh;">
-        <div class="row justify-content-left" style="margin: 2%;">
+        <div style="margin: 2%;">
             <h1><strong>4 Different ways to build Fibonacci series in Java</strong></h1>
-            <form action="/fib" method="GET" id="fibForm">
-                <label for="fibField">Type the nth number in the fibonacci sequence?</label>
-                <input name="seq" id="fibField" type="number" min="2" max="93" >
+        </div>
+        <div style="margin: 2%;">
+            <form id="fibForm" action="/fib" method="GET" >
+                <label for="fibseq">Type the nth number in the fibonacci sequence?</label>
+                <input name="fibseq" id="fibseq" type="number" min="2" max="93" >
                 <button>Go!</button>
-                <p th:text="'Fibonacci sequence, ' + ${fibseq}"></p>
-                <p th:text="'For loop time in  nanos: ' + ${fibfortime}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:text="'Recursion time in  nanos: ' + ${fibrecursetime}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:text="'Stream time in  nanos: ' + ${fibstreamtime}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:text="'While loop time in  nanos: ' + ${fibwhiletime}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
             </form>
+        </div>
+        <div style="margin: 2%;">
+            <p th:text="'Fibonacci sequence, ' + ${fibseq}"></p>
+            <p th:text="'For loop time in  nanos: ' + ${fibfortime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibFor.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:text="'Recursion time in  nanos: ' + ${fibrecursetime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibRecurse.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:text="'Stream time in  nanos: ' + ${fibstreamtime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibStream.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:text="'While loop time in  nanos: ' + ${fibwhiletime}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2Ffibonacci%2FFibWhile.java&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
         </div>
         <div th:replace="fragments/footer :: footer"></div>
     </div>

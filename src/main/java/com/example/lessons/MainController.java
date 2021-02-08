@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.example.lessons.algos.fibonacci.*;
 
@@ -51,20 +53,21 @@ public class MainController {
         return "timeline";
     }
 
-    @GetMapping("/pbl")   // CONTROLLER handles GET request for
+    @GetMapping("/pbl")   // GET request
     public String pblArticle() {
         return "articles/pbl";                     // returns HTML VIEW (greeting)
     }
 
-    @GetMapping("/snake")   // CONTROLLER handles GET request for
+    @GetMapping("/snake")   // GET request
     public String snake() {
         return "starters/snake";                     // returns HTML VIEW (greeting)
     }
 
-    @GetMapping("/fib")   // CONTROLLER handles GET request for
-    public String fib(@RequestParam(name="seq", required=false,  defaultValue="2") String seq, Model model) {
+    // GET request,, parameters are passed with URL
+    @GetMapping("/fib")
+    public String fib(@RequestParam(name="fibseq", required=false,  defaultValue="2") String fibseq, Model model) {
         //nth is fibonacci request
-        int nth = Integer.parseInt(seq);
+        int nth = Integer.parseInt(fibseq);
 
         //fibonacci methods
         FibFor fibfor = new FibFor(nth);
@@ -84,7 +87,8 @@ public class MainController {
         return "algos/fib";
     }
 
-    @GetMapping("/pali")   // CONTROLLER handles GET request for
+    // GET and POST request, form action is POST - parameters are now hidden
+    @RequestMapping(value = "/pali", method = { RequestMethod.GET, RequestMethod.POST })
     public String pali(@RequestParam(name="phrase", required=false,  defaultValue="A man a plan a canal panama") String phrase, Model model) {
 
         //MODEL attributes are passed back html
@@ -96,7 +100,8 @@ public class MainController {
         return "algos/pali";
     }
 
-    @GetMapping("/covid19")   // CONTROLLER handles GET request for
+    // GET request, no parameters
+    @GetMapping("/covid19")
     public String covid19(Model model) throws IOException, InterruptedException {
         //rapidapi setup
         HttpRequest request = HttpRequest.newBuilder()

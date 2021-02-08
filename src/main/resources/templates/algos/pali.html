@@ -7,19 +7,23 @@
 <div th:replace="fragments/header :: header"></div>
 <div class="contact" style="height: 35vh;">
     <div class="contact" style="height: 35vh;">
-        <div class="row justify-content-left" style="margin: 2%;">
+        <div style="margin: 2%;">
             <h1><strong>3 Different ways to test a phrase as a palindrome in Java</strong></h1>
-            <form action="/pali" method="GET" id="paliForm">
-                <label for="paliField">Type a phrase to be tested as a palindrome?</label>
-                <input name="phrase" id="paliField" >
+        </div>
+        <div style="margin: 2%;">
+            <form id="paliForm" action="/pali" method="POST" >
+                <label for="phrase">Type a phrase to be tested as a palindrome?</label>
+                <input name="phrase" id="phrase" >
                 <button>Go!</button>
-                <p th:each="line: ${log1}" th:text="${line}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2FPalindrome.java%23L157-L189&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:each="line: ${log2}" th:text="${line}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2FPalindrome.java%23L191-L231&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
-                <p th:each="line: ${log3}" th:text="${line}"></p>
-                <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2FPalindrome.java%23L134-L155&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
             </form>
+        </div>
+        <div style="margin: 2%;">
+            <p th:each="line: ${log1}" th:text="${line}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2FPalindrome.java%23L157-L189&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:each="line: ${log2}" th:text="${line}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2FPalindrome.java%23L191-L231&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+            <p th:each="line: ${log3}" th:text="${line}"></p>
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fspring-idea%2Fblob%2Fmaster%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexample%2Flessons%2Falgos%2FPalindrome.java%23L134-L155&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
         </div>
         <div th:replace="fragments/footer :: footer"></div>
     </div>
