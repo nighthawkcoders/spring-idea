@@ -1,10 +1,15 @@
 <!DOCTYPE HTML>
 <!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{fragments/layout}">
+      layout:decorate="~{fragments/layout}" lang="en">
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
-<div layout:fragment="content" th:remove="tag">
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Class Repositories</title>
+</div></head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
     <div class="row justify-content-center">
         <div class="col-10" style="text-align: center;">
             <h1>Repositories</h1>
@@ -24,5 +29,6 @@
             <iframe width="80%" height="500px" src="https://repl.it/@jmort1021/Java-Hello-Series?lite=true"></iframe>
         </div>
     </div>
-</div>
+</div></body>
+
 </html>

@@ -1,9 +1,12 @@
 <!-- This page is illustrative and contains ideas about HTML formatting -->
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 
 <!-- Head, think of things that are more meta or format oriented -->
-<head th:replace="fragments/headfile :: head">
+<head>
+    <div th:replace="fragments/headfile :: header"></div>
+    <!-- Head defaults to ellipses, details are added by ThymeLeaf layout fragment -->
+    <div layout:fragment="metadata">...</div>
 </head>
 
 <body>
