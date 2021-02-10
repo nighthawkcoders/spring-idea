@@ -1,19 +1,13 @@
 <!-- This page is illustrative and contains ideas about HTML formatting -->
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}">
 
-
-<!-- Head, think of things that are more meta or format oriented -->
-<head th:replace="fragments/headfile :: head">
-    <title>Spring Intro</title>
-</head>
-
-<body>
-    <!-- Header of Page, includes Navigation -->
-    <div th:replace="fragments/header :: header"></div>
-
-    <!-- Body of Page, the details of this pages -->
-    <div id="articles" class="screen" style="margin: 30px;">
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<div layout:fragment="content" th:remove="tag">
+    <!-- Body of Page, the content details -->
+    <div id="spring_intro" class="articles" style="margin: 30px;">
         <h1><strong>Java and Spring</strong></h1>
         <h3><strong>What is Spring?</strong></h3>
         <ol>
@@ -34,8 +28,6 @@
             <li>Deployment Devops. Things like Docker and Kubernetes.  Understanding Nginix and other tools for managing servers, configuration, and scale.</li>
         </ol>
     </div>
+</div>
 
-    <!-- Footer of Page, includes things like contacts or copywrite -->
-    <div th:replace="fragments/footer :: footer"></div>
-</body>
 </html>
