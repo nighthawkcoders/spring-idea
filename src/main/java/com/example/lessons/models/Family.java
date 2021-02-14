@@ -26,17 +26,59 @@ public class Family {
     static public String adoptKy = "Adopted";
 
     /*
-    Family constructor
+    Family constructor requires Individual
      */
     public Family(String name, String DOB) {
-        this.me = kvPairsToMap(nameKy, name, dobKy, DOB);
+        this.setIndividual(name, DOB);
     }
 
     /*
-    Export of Family object
+    Family constructor by JSON
+     */
+    public Family(JsonNode node) throws JsonProcessingException {
+        // unwrap JsonNode
+        HashMap<?, ?> family = new ObjectMapper().readValue(node.toString(), HashMap.class);
+        // set individual
+        HashMap<?, ?> individual = (HashMap<?, ?>) family.get(individualKy);
+        this.setIndividual((String)individual.get(nameKy), (String)individual.get(dobKy));
+        // set spouse
+        HashMap<?, ?> spouse = (HashMap<?, ?>) family.get(spouseKy);
+        this.setSpouse((String)spouse.get(nameKy), (String)spouse.get(dobKy));
+        // add children
+        ArrayList<?> children = (ArrayList<?>) family.get(childrenKy);
+        if (children != null) {
+            for (Object child : children) {
+                HashMap<?, ?> hChild = (HashMap<?, ?>) child;
+                // Test for adopted
+                if (hChild.containsKey(adoptKy)) {
+                    addChild((String)hChild.get(nameKy), (String)hChild.get(dobKy), true);
+                } else {
+                    addChild((String)hChild.get(nameKy), (String)hChild.get(dobKy));
+                }
+            }
+        }
+    }
+
+    /*
+    Export a Family HashMap
      */
     public HashMap<Object, Object> getFamily() {
         return kvPairsToMap(individualKy, this.me, spouseKy, this.spouse, childrenKy, this.children);
+    }
+
+    /*
+    Export a Family JSON
+     */
+    public JsonNode getJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.convertValue(this.getFamily(), JsonNode.class);
+    }
+
+    /*
+    Add spouse to Family
+     */
+    public void setIndividual (String name, String DOB) {
+        this.me = kvPairsToMap(nameKy, name, dobKy, DOB);
     }
 
     /*
@@ -79,8 +121,7 @@ public class Family {
     Test Print family object
      */
     public static void testPrint(HashMap<?, ?> family) {
-
-        System.out.print("Family Object");
+        // print family object
         System.out.println(family);
 
         // get individual from family, type in this example is confident
@@ -112,12 +153,14 @@ public class Family {
         // create a family object
         Family mortensen = new Family("John", "10/21/1959");
         // family object test,single
+        System.out.println("Family Object Test, single");
         Family.testPrint(mortensen.getFamily());
         System.out.println(separator.repeat(50));
 
         // add spouse to object
         mortensen.setSpouse("Lora", "9/23/1959");
-        // family object, couple only
+        // print exported family object, couple only
+        System.out.println("Family Object Test, set spouse");
         Family.testPrint(mortensen.getFamily());
         System.out.println(separator.repeat(50));
         
@@ -127,20 +170,23 @@ public class Family {
         mortensen.addChild("Tiernan", "8/2/1994", true);
         mortensen.addChild("Claire", "7/7/1997", true);
         mortensen.addChild("Shay", "5/2/2009");
-        // family object with children
+        // print exported family object with children
+        System.out.println("Family Object Test, add children");
         Family.testPrint(mortensen.getFamily());
+        System.out.println(separator.repeat(50));
 
         // making a JSON object with Jackson
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode mortensenJSON = mapper.convertValue(mortensen, JsonNode.class);
+        JsonNode mortensenJSON = mortensen.getJSON();
+        System.out.println("JsonNode creation, object");
         System.out.println(mortensenJSON);
+        System.out.println("JsonNode toString(), string");
         System.out.println(mortensenJSON.toString());
         System.out.println(separator.repeat(50));
 
-        // converting JSON object back to a Java HashMap
-        HashMap<?, ?> mortensen2 = new ObjectMapper().readValue(mortensenJSON.toString(), HashMap.class);
-        System.out.println(mortensen2.get("family"));
-        Family.testPrint((HashMap<?, ?>) mortensen2.get("family"));
+        // converting JSON object back to a Family object
+        Family mortensen2 = new Family(mortensenJSON);
+        System.out.println("Family Object Test, constructing from JsonNode");
+        Family.testPrint(mortensen2.getFamily());
         System.out.println(separator.repeat(50));
     }
 }
