@@ -1,7 +1,12 @@
 package com.example.lessons.models;
 
-import java.util.ArrayList;
+// Building HashMap
 import java.util.HashMap;
+import java.util.ArrayList;
+// Working with JSON
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /*
 Family Information Class
@@ -78,27 +83,30 @@ public class Family {
         System.out.print("Family Object");
         System.out.println(family);
 
+        // get individual from family, type in this example is confident
         HashMap<?, ?> applicant = (HashMap<?, ?>) family.get(individualKy);
         System.out.printf("%s: %s, %s%n", individualKy, applicant.get(nameKy), applicant.get(dobKy));
+        // get spouse from family, type in this example is confident
         HashMap<?, ?> spouse = (HashMap<?, ?>)family.get(spouseKy);
         if (spouse != null)
             System.out.printf("%s: %s, %s%n", spouseKy, spouse.get(nameKy), spouse.get(dobKy));
-
+        // get children from family, type in this example is confident
         ArrayList<?> children = (ArrayList<?>) family.get(childrenKy);
         if (children != null) {
             System.out.println("Children");
             // System.out.println(family.get(childrenKy));
             for (Object child : children) {
-                HashMap<?, ?> xchild = (HashMap<?, ?>) child;
-                if (xchild.containsKey(adoptKy))
-                    System.out.printf("%s, %s, %s%n", xchild.get(nameKy), xchild.get(dobKy), adoptKy);
+                // get children from family, type in this example is confident
+                HashMap<?, ?> hChild = (HashMap<?, ?>) child;
+                if (hChild.containsKey(adoptKy))
+                    System.out.printf("%s, %s, %s%n", hChild.get(nameKy), hChild.get(dobKy), adoptKy);
                 else
-                    System.out.printf("%s, %s%n", xchild.get(nameKy), xchild.get(dobKy));
+                    System.out.printf("%s, %s%n", hChild.get(nameKy), hChild.get(dobKy));
             }
         }
     }
 
-    public static void main(String[] arg) {
+    public static void main(String[] arg) throws JsonProcessingException {
         String separator = "=";
 
         // create a family object
@@ -122,5 +130,10 @@ public class Family {
         // family object with children
         Family.testPrint(mortensen.getFamily());
 
+        // making a JSON object with Jackson
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode mortensenJSON = mapper.convertValue(mortensen, JsonNode.class);
+        System.out.println(mortensenJSON);
+        System.out.println(mortensenJSON.toString());
     }
 }
