@@ -78,7 +78,7 @@ public class Family {
     /*
     Test Print family object
      */
-    public static void testPrint(HashMap<Object, Object> family) {
+    public static void testPrint(HashMap<?, ?> family) {
 
         System.out.print("Family Object");
         System.out.println(family);
@@ -135,5 +135,12 @@ public class Family {
         JsonNode mortensenJSON = mapper.convertValue(mortensen, JsonNode.class);
         System.out.println(mortensenJSON);
         System.out.println(mortensenJSON.toString());
+        System.out.println(separator.repeat(50));
+
+        // converting JSON object back to a Java HashMap
+        HashMap<?, ?> mortensen2 = new ObjectMapper().readValue(mortensenJSON.toString(), HashMap.class);
+        System.out.println(mortensen2.get("family"));
+        Family.testPrint((HashMap<?, ?>) mortensen2.get("family"));
+        System.out.println(separator.repeat(50));
     }
 }
