@@ -1,0 +1,22 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}" lang="en">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<head><div layout:fragment="metadata" th:remove="tag">
+    <title>Spring Intro</title>
+</div></head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body><div layout:fragment="content" th:remove="tag">
+    <div id="spring_intro" class="alert" style="margin: 30px;">
+        <p>Congratulations! You are old enough to sign up for this site.</p>
+    </div>
+</body>
+</div></body>
+
+</html>
+
+>

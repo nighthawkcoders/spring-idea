@@ -90,11 +90,27 @@ public class Family {
         this.me = kvPairsToMap(nameKy, name, dobKy, DOB);
     }
 
+    public String getIndividualName() {
+        return (String) me.get(nameKy);
+    }
+
+    public String getIndividualDOB() {
+        return (String) me.get(dobKy);
+    }
+
     /*
     Add spouse to Family
      */
     public void setSpouse(String name, String DOB) {
         this.spouse = kvPairsToMap(nameKy, name, dobKy, DOB);
+    }
+
+    public String getSpouseName() {
+        return (String) spouse.get(nameKy);
+    }
+
+    public String getSpouseDOB() {
+        return (String) spouse.get(dobKy);
     }
 
     /*
@@ -167,5 +183,7 @@ public class Family {
         }
         return outString.toString();
     }
+
+
 
 }
