@@ -5,14 +5,14 @@
       layout:decorate="~{fragments/layout}" lang="en">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>Person Form</title>
+    <title>Family Form</title>
 </div></head>
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
     <div style="margin: 2%;">
         <h3>Welcome, Enter The Persons Details</h3>
-        <form action="#" th:action="@{/person}" th:object="${personForm}" method="post">
+        <form action="#" th:action="@{/family}" th:object="${personForm}" method="post">
             <table>
                 <tr>
                     <td>Name:</td>
