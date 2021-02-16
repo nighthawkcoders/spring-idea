@@ -23,6 +23,8 @@ public class Person {
     @Min(16)
     private Integer age;
 
+    public Person() {this.name = ""; this.age = 0;}
+
     public Person(String name, Integer age) {this.name = name; this.age = age;}
 
     public String getName() {

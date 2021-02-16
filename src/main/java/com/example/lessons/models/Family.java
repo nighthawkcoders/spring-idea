@@ -15,9 +15,9 @@ Family Information Class
  */
 public class Family {
     // Family Data
-    Person primary;
-    Person spouse;
-    List<Person> children;
+    public Person primary;
+    public Person spouse;
+    public List<Person> children;
 
     // Keys Used in HashMaps
     static private final String primaryKy = "Primary";
@@ -27,11 +27,28 @@ public class Family {
     /*
     Family constructor requires Individual
      */
+    public Family() {
+        this.primary = new Person();
+        this.spouse = null;
+        this.children = null;
+    }
+
+    /*
+    Family constructor requires Individual
+     */
     public Family(String name, Integer age) {
         this.primary = new Person(name, age);
         this.spouse = null;
         this.children = null;
     }
+
+    /*
+    Set/Get primary individual to Family
+     */
+    public void setPrimary (String name, Integer age) {
+        primary.setName(name); primary.setAge(age);
+    }
+    public Person getPrimary () { return primary; }
 
     /*
     Add spouse to Family

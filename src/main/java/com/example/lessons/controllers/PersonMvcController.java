@@ -1,4 +1,4 @@
-package com.example.lessons;
+package com.example.lessons.controllers;
 
 import com.example.lessons.models.Person;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class PersonMvcController implements WebMvcConfigurer {
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/personresults").setViewName("starters/personresults");
+        registry.addViewController("/personresults").setViewName("mvc/personresults");
     }
 
     /*  The HTML template Forms and PersonForm attributes are bound
@@ -28,7 +28,7 @@ public class PersonMvcController implements WebMvcConfigurer {
     */
     @GetMapping("/person")
     public String showForm(Person person) {
-        return "starters/person";
+        return "mvc/person";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
@@ -39,7 +39,7 @@ public class PersonMvcController implements WebMvcConfigurer {
     public String checkData(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "starters/person";
+            return "mvc/person";
         }
         // Redirect to next step
         return "redirect:/personresults";
