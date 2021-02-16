@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.validation.Valid;
 
 // Built using article: https://spring.io/guides/gs/validating-form-input/
+// or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
 @Controller
 public class PersonMvcController implements WebMvcConfigurer {
 
