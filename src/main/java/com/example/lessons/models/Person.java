@@ -1,9 +1,15 @@
 package com.example.lessons.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
+@Setter
+@Getter
 public class Person {
     /* Used to build JSON */
     static public String nameKy = "Name";
@@ -23,27 +29,10 @@ public class Person {
     @Min(16)
     private Integer age;
 
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
+    private Date dob;
+
     public Person() {this.name = ""; this.age = 0;}
 
     public Person(String name, Integer age) {this.name = name; this.age = age;}
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String toString() {
-        return "Name: " + this.name + ", Age: " + this.age;
-    }
 }

@@ -5,19 +5,21 @@
       layout:decorate="~{fragments/layout}" lang="en">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>Person Form</title>
+    <title>Family Form</title>
 </div></head>
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
     <div style="margin: 2%;">
         <h3>Welcome, Enter The Family Details</h3>
-        <!-- ThymeLeaf allows person abject of the Class Person in the form
-         This is known as a “bean-backed form”.
+        <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
+         This is known as a “bean-backed form” or "form-backing bean".
+            th:object - the backend form object (bean object)
          There are two fields in the Person bean,
             th:field="*{name}"
             th:field="*{age}".
          Each field has supporting line for to show errors in validation
+            th:errors - form input errors added when validation errors occur
          .-->
         <form action="#" th:action="@{/family}" th:object="${person}" method="post">
             <table>
@@ -30,6 +32,10 @@
                     <td>Age:</td>
                     <td><input type="text" th:field="*{age}" /></td>
                     <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td><input type="text" th:field="*{dob}" placeholder="MM/dd/yyyy" /></td>
                 </tr>
                 <tr>
                     <td><button type="submit">Submit</button></td>
