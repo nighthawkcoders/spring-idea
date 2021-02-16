@@ -29,8 +29,8 @@ public class FamilyMvcController implements WebMvcConfigurer {
         @param - Person Class
     */
     @GetMapping("/family")
-    public String showForm(Model model) {
-        Family family = new Family();
+    public String showForm(Family family, Model model) {
+        model.addAttribute("family", family );
         model.addAttribute("person", family.getPrimary() );
         return "mvc/family";
     }
