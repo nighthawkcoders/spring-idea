@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import javax.validation.Valid;
 
 // Built using article: https://spring.io/guides/gs/validating-form-input/
@@ -38,12 +40,13 @@ public class FamilyMvcController implements WebMvcConfigurer {
     @param - BindingResult object
      */
     @PostMapping("/family")
-    public String checkData(@Valid Family family, BindingResult bindingResult) {
+    public String checkData(@Valid Family family, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
             return "mvc/family";
         }
         // Redirect to next step
+        redirectAttributes.addAttribute("family", family.toString());
         return "redirect:/familyresults";
     }
 }

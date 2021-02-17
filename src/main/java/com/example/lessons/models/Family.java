@@ -14,7 +14,7 @@ public class Family {
     public List<Person> children;
 
     // Keys Used in HashMaps
-    static private final String primaryKy = "Primary";
+    static private final String personKy = "Person";
     static private final String spouseKy = "Spouse";
     static private final String childrenKy = "Children";
 
@@ -23,7 +23,7 @@ public class Family {
      */
     public Family() {
         this.person = new Person();
-        this.spouse = null;
+        this.spouse = new Person();
         this.children = null;
     }
 
@@ -79,21 +79,21 @@ public class Family {
         StringBuilder outString;
 
         // get individual datq
-        outString = new StringBuilder(String.format("%s: %s, %s%n",
-                primaryKy, person.getName(), person.getAge()));
+        outString = new StringBuilder(String.format("%s: %s, %s, %s%n",
+                personKy, person.getName(), person.getAge(), person.getDob()));
 
         // get spouse data
         if ( spouse != null)
-            outString.append(String.format("%s: %s, %s%n",
-                    spouseKy, spouse.getName(), spouse.getAge()));
+            outString.append(String.format("%s: %s, %s %s%n",
+                    spouseKy, spouse.getName(), spouse.getAge(), spouse.getDob()));
 
         // get children data
         if (children != null) {
             outString.append(String.format("%s:%n", childrenKy));
             // System.out.println(family.get(childrenKy));
             for (Person child : children) {
-                outString.append(String.format("%s: %s, %s%n",
-                        childrenKy, child.getName(), child.getAge()));
+                outString.append(String.format("%s: %s, %s %s%n",
+                        childrenKy, child.getName(), child.getAge(), child.getDob()));
             }
         }
         return outString.toString();
