@@ -14,6 +14,7 @@ public class Person {
     /* Used to build JSON */
     static public String nameKy = "Name";
     static public String ageKy = "Age";
+    static public String dobKy = "DOB";
     static public String adoptKy = "Adopted";
 
     /*
