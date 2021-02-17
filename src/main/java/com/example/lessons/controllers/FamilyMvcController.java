@@ -31,7 +31,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
     @GetMapping("/family")
     public String showForm(Family family, Model model) {
         model.addAttribute("family", family );
-        model.addAttribute("person", family.getPrimary() );
+        model.addAttribute("person", family.getPerson() );
         return "mvc/family";
     }
 

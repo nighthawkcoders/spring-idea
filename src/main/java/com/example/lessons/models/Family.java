@@ -39,10 +39,10 @@ public class Family {
     /*
     Set/Get primary individual to Family
      */
-    public void setPrimary (String name, Integer age) {
+    public void setPerson (String name, Integer age) {
         person.setName(name); person.setAge(age);
     }
-    public Person getPrimary () { return person; }
+    public Person getPerson () { return person; }
 
     /*
     Add spouse to Family
