@@ -1,16 +1,7 @@
 package com.example.lessons.models;
 
-// Building HashMap
-import java.io.Serializable;
-import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
-// Working with JSON
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /*
 Family Information Class
@@ -18,7 +9,7 @@ Family Information Class
 public class Family {
     // Family Data
 
-    public Person primary;
+    public Person person;
     public Person spouse;
     public List<Person> children;
 
@@ -31,7 +22,7 @@ public class Family {
     Family constructor requires Individual
      */
     public Family() {
-        this.primary = new Person();
+        this.person = new Person();
         this.spouse = null;
         this.children = null;
     }
@@ -40,7 +31,7 @@ public class Family {
     Family constructor requires Individual
      */
     public Family(String name, Integer age) {
-        this.primary = new Person(name, age);
+        this.person = new Person(name, age);
         this.spouse = null;
         this.children = null;
     }
@@ -49,9 +40,9 @@ public class Family {
     Set/Get primary individual to Family
      */
     public void setPrimary (String name, Integer age) {
-        primary.setName(name); primary.setAge(age);
+        person.setName(name); person.setAge(age);
     }
-    public Person getPrimary () { return primary; }
+    public Person getPrimary () { return person; }
 
     /*
     Add spouse to Family
@@ -89,7 +80,7 @@ public class Family {
 
         // get individual datq
         outString = new StringBuilder(String.format("%s: %s, %s%n",
-                primaryKy, primary.getName(), primary.getAge()));
+                primaryKy, person.getName(), person.getAge()));
 
         // get spouse data
         if ( spouse != null)

@@ -13,7 +13,7 @@ Family Information Class
  */
 public class Family2 {
     // Family Data
-    HashMap<Object, Object> me;
+    HashMap<Object, Object> person;
     HashMap<Object, Object> spouse = null;
     ArrayList<HashMap<Object, Object>> children = null;
     // Keys Used in HashMaps
@@ -66,7 +66,7 @@ public class Family2 {
     Export a Family HashMap
      */
     public HashMap<Object, Object> getFamily() {
-        return kvPairsToMap(individualKy, this.me, spouseKy, this.spouse, childrenKy, this.children);
+        return kvPairsToMap(individualKy, this.person, spouseKy, this.spouse, childrenKy, this.children);
     }
 
     /*
@@ -87,15 +87,15 @@ public class Family2 {
     Add spouse to Family
      */
     public void setIndividual (String name, String DOB) {
-        this.me = kvPairsToMap(nameKy, name, dobKy, DOB);
+        this.person = kvPairsToMap(nameKy, name, dobKy, DOB);
     }
 
     public String getIndividualName() {
-        return (String) me.get(nameKy);
+        return (String) person.get(nameKy);
     }
 
     public String getIndividualDOB() {
-        return (String) me.get(dobKy);
+        return (String) person.get(dobKy);
     }
 
     /*
@@ -159,7 +159,7 @@ public class Family2 {
 
         // get individual datq
         outString = new StringBuilder(String.format("%s: %s, %s%n",
-                individualKy, me.get(nameKy), me.get(dobKy)));
+                individualKy, person.get(nameKy), person.get(dobKy)));
 
         // get spouse data
         if ( spouse != null)

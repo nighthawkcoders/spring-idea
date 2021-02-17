@@ -32,7 +32,7 @@ public class Person {
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date dob;
 
-    public Person() {this.name = ""; this.age = 0;}
+    public Person() {}
 
     public Person(String name, Integer age) {this.name = name; this.age = age;}
 }
