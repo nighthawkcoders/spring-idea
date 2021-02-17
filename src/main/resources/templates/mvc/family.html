@@ -21,22 +21,22 @@
          Each field has supporting line for to show errors in validation
             th:errors - form input errors added when validation errors occur
          .-->
-        <form action="#" th:action="@{/family}" th:object="${person}" method="post">
+        <form action="#" th:action="@{/family}" th:object="${family}" method="post">
             <table>
                 <tr>
                     <td>Name:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                    <td><input type="text" th:field="*{person.name}" /></td>
+                    <td th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}">Name Error</td>
                 </tr>
                 <tr>
                     <td>Age:</td>
-                    <td><input type="text" th:field="*{age}" /></td>
-                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                    <td><input type="text" th:field="*{person.age}" /></td>
+                    <td th:if="${#fields.hasErrors('person.age')}" th:errors="*{person.age}">Age Error</td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
-                    <td><input type="text" th:field="*{dob}" placeholder="MM/dd/yyyy" /></td>
-                    <td th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">Date Error</td>
+                    <td><input type="text" th:field="*{person.dob}" placeholder="MM/dd/yyyy" /></td>
+                    <td th:if="${#fields.hasErrors('person.dob')}" th:errors="*{person.dob}">Date Error</td>
                 </tr>
                 <tr>
                     <td><button type="submit">Submit</button></td>

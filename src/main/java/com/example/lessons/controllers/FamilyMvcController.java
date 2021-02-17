@@ -40,7 +40,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
     @param - BindingResult object
      */
     @PostMapping("/family")
-    public String checkData(@Valid Person person, BindingResult bindingResult) {
+    public String checkData(@Valid Family family, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
             return "mvc/family";
