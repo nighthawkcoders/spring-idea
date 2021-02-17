@@ -24,14 +24,12 @@ public class FamilyMvcController implements WebMvcConfigurer {
         registry.addViewController("/familyresults").setViewName("mvc/familyresults");
     }
 
-    /*  The HTML template Forms and PersonForm attributes are bound
-        @return - template for person form
-        @param - Person Class
+    /*  The HTML template Forms and Model attributes are bound
+        @return - Template for form
+        @param -  Class for form
     */
     @GetMapping("/family")
-    public String showForm(Family family, Model model) {
-        model.addAttribute("family", family );
-        model.addAttribute("person", family.getPerson() );
+    public String showForm(Family family) {
         return "mvc/family";
     }
 
