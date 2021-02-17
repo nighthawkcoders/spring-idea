@@ -33,8 +33,8 @@ public class Family {
      */
     public Family(String name, Integer age) {
         this.person = new Person(name, age);
-        this.spouse = null;
-        this.children = null;
+        this.spouse = new Person();
+        this.children = new ArrayList<>();
     }
 
     /*

@@ -22,7 +22,9 @@
          .-->
         <form action="#" th:action="@{/family}" th:object="${family}" method="post">
             <table>
-                <h1>Applicant</h1>
+                <tr>
+                    <td colspan="2" class="divider"><hr /><h2>Applicant</h2></td>
+                </tr>
                 <tr>
                     <td>Name:</td>
                     <td><input type="text" th:field="*{person.name}" /></td>
@@ -37,6 +39,21 @@
                     <td>Date of Birth:</td>
                     <td><input type="text" th:field="*{person.dob}" placeholder="MM/dd/yyyy" /></td>
                     <td th:if="${#fields.hasErrors('person.dob')}" th:errors="*{person.dob}">Date Error</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="divider"><hr /><h2>Spouse</h2></td>
+                </tr>
+                <tr>
+                    <td>Spouse:</td>
+                    <td><input type="text" th:field="*{spouse.name}" /></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="text" th:field="*{spouse.age}" /></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td><input type="text" th:field="*{spouse.dob}" placeholder="MM/dd/yyyy" /></td>
                 </tr>
                 <tr>
                     <td><button type="submit">Submit</button></td>
