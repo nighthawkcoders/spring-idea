@@ -1,6 +1,7 @@
 package com.example.lessons.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -24,7 +25,7 @@ public class Family {
     public Family() {
         this.person = new Person();
         this.spouse = new Person();
-        this.children = null;
+        this.children = new ArrayList<>();
     }
 
     /*
@@ -39,29 +40,34 @@ public class Family {
     /*
     Set/Get primary individual to Family
      */
-    public void setPerson (String name, Integer age) {
-        person.setName(name); person.setAge(age);
+    public void setPerson (String name, Integer age, Date dob) {
+        if (person == null) { this.person = new Person(); }
+        person.setName(name); person.setAge(age); person.setDob(dob);
     }
     public Person getPerson () { return person; }
 
     /*
     Add spouse to Family
      */
-    public void setSpouse (String name, Integer age) {
+    public void setSpouse (String name, Integer age, Date dob) {
         if (spouse == null) { this.spouse = new Person(name, age); }
-        else { spouse.setName(name); spouse.setAge(age); }
+        else { spouse.setName(name); spouse.setAge(age); spouse.setDob(dob);}
     }
+    public Person getSpouse () { return spouse; }
+
 
     /*
     Add child(ren) to Family
      */
-    public void addChild (String name, Integer age) {
+    public void setChild (String name, Integer age, Date dob) {
         // initialization check
         if (this.children == null) {
             this.children = new ArrayList<>();
         }
-        children.add(new Person(name, age));
+        children.add(new Person(name, age, dob));
     }
+    public List<Person> getChildren () { return children; }
+
 
     /*
     Print Family object
@@ -84,7 +90,7 @@ public class Family {
 
         // get spouse data
         if ( spouse != null)
-            outString.append(String.format("%s: %s, %s %s%n",
+            outString.append(String.format("%s: %s, %s, %s%n",
                     spouseKy, spouse.getName(), spouse.getAge(), spouse.getDob()));
 
         // get children data
@@ -92,7 +98,7 @@ public class Family {
             outString.append(String.format("%s:%n", childrenKy));
             // System.out.println(family.get(childrenKy));
             for (Person child : children) {
-                outString.append(String.format("%s: %s, %s %s%n",
+                outString.append(String.format("%s: %s, %s, %s%n",
                         childrenKy, child.getName(), child.getAge(), child.getDob()));
             }
         }
