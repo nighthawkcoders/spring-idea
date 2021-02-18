@@ -1,5 +1,7 @@
 package com.example.lessons.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

@@ -46,14 +46,17 @@
                 <tr>
                     <td>Spouse:</td>
                     <td><input type="text" th:field="*{spouse.name}" /></td>
+                    <td th:if="${#fields.hasErrors('spouse.name')}" th:errors="*{spouse.name}">Name Error</td>
                 </tr>
                 <tr>
                     <td>Age:</td>
                     <td><input type="text" th:field="*{spouse.age}" /></td>
+                    <td th:if="${#fields.hasErrors('spouse.age')}" th:errors="*{spouse.age}">Age Error</td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
                     <td><input type="text" th:field="*{spouse.dob}" placeholder="MM/dd/yyyy" /></td>
+                    <td th:if="${#fields.hasErrors('spouse.dob')}" th:errors="*{spouse.dob}">Date Error</td>
                 </tr>
                 <tr>
                     <td><button type="submit">Submit</button></td>
