@@ -15,11 +15,6 @@ Family Information Class
 @Setter
 @ToString
 public class Family {
-    // Keys Used in HashMaps
-    static public final String personKy = "Person";
-    static public final String spouseKy = "Spouse";
-    static public final String childrenKy = "Children";
-
     // Family Data
     public Person person;
     public Person spouse;
@@ -40,13 +35,13 @@ public class Family {
         StringBuilder outString;
 
         // get individual datq
-        outString = new StringBuilder(String.format("%s: %s, %s, %s%n",
-                personKy, person.getName(), person.getAge(), person.getDob()));
+        outString = new StringBuilder(String.format("Person: %s, %s, %s%n",
+                person.getName(), person.getAge(), person.getDob()));
 
         // get spouse data
         if ( spouse != null)
-            outString.append(String.format("%s: %s, %s, %s%n",
-                    spouseKy, spouse.getName(), spouse.getAge(), spouse.getDob()));
+            outString.append(String.format("Spouse: %s, %s, %s%n",
+                    spouse.getName(), spouse.getAge(), spouse.getDob()));
 
         // get children data
         if (children != null) {

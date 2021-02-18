@@ -15,12 +15,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person {
-    /* Used to build JSON */
-    static public String nameKy = "Name";
-    static public String ageKy = "Age";
-    static public String dobKy = "DOB";
-    static public String adoptKy = "Adopted";
-
     /*
     @NotNull: Does not allow a null value, which is what Spring MVC generates if the entry is empty.
     @Size(min=2, max=30): Allows names between 2 and 30 characters long.
@@ -36,5 +30,4 @@ public class Person {
 
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date dob;
-
 }

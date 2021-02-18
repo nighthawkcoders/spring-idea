@@ -1,12 +1,10 @@
 package com.example.lessons.models;
 
+// Jackson Object Mapping support
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +18,8 @@ public class FamilyTester {
     }
 
     /*
-    Export a Family JSON
+    Export a Family Object into a JSON node
+        -- Jackson provides ObjectMapper
      */
     private static JsonNode getJSON(Family obj) {
         JsonNode node = null;
@@ -34,7 +33,8 @@ public class FamilyTester {
     }
 
     /*
-    Import a Family JSON to Family Obj
+    Import a JSON into a Family Object
+        -- Jackson provides ObjectMapper
      */
     private static Family putJSON(JsonNode node) {
         ObjectMapper mapper = new ObjectMapper();
@@ -42,8 +42,6 @@ public class FamilyTester {
 
         try {
             obj = mapper.readValue(node.toString(), Family.class);
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -60,15 +58,10 @@ public class FamilyTester {
 
         System.out.println("=".repeat(50));
         System.out.println(msg);
-        System.out.println("Lombok toString Boilerplate");
-        System.out.println(obj);
-        System.out.println("JSON via Jackson ObjectMapper (get from Object)");
-        System.out.println(node);
-        System.out.println("Lombok toString Boilerplate via Jackson (put from JSON)");
-        System.out.println(objViaJSON);
-        System.out.println("Family custom prettyPrint method");
-        System.out.println(obj.prettyPrint()); // custom pretty print
-
+        System.out.println("Lombok toString Boilerplate");System.out.println(obj);
+        System.out.println("JSON via Jackson ObjectMapper (get from Object)");System.out.println(node);
+        System.out.println("Lombok toString Boilerplate via Jackson (put from JSON)");System.out.println(objViaJSON);
+        System.out.println("Family custom prettyPrint method");System.out.println(obj.prettyPrint()); // custom pretty print
         System.out.println("=".repeat(50));
     }
 
@@ -96,6 +89,5 @@ public class FamilyTester {
         mortensen.addChild("Claire", 23, str2date("7/7/1997"));
         mortensen.addChild("Shay", 11, str2date("5/2/2009"));
         print("Family Object Test, add children", mortensen);
-
     }
 }
