@@ -6,9 +6,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+@ToString
 @Setter
 @Getter
 public class Person {

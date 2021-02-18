@@ -2,6 +2,7 @@ package com.example.lessons.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 /*
 Family Information Class
  */
+@ToString
 @Setter
 @Getter
 public class Family {
@@ -33,7 +35,7 @@ public class Family {
         this.person = new Person();
         this.spouse = new Person();
         this.children = new ArrayList<>();
-        this.family = kvPairsToMap(personKy, this.person, spouseKy, this.spouse, childrenKy, this.children);
+        this.initMap();
     }
 
     /*
@@ -43,7 +45,14 @@ public class Family {
         this.person = new Person(name, age);
         this.spouse = new Person();
         this.children = new ArrayList<>();
-        this.family = kvPairsToMap(personKy, this.person, spouseKy, this.spouse, childrenKy, this.children);
+        this.initMap();
+    }
+
+    private void initMap() {
+        this.family = new HashMap<>();
+        family.put(personKy, this.person);
+        family.put(spouseKy, this.spouse);
+        family.put(childrenKy, this.children);
     }
 
     /*
@@ -71,29 +80,9 @@ public class Family {
     }
 
     /*
-    Multiple key,value HashMap helper function
-     */
-    public static HashMap<Object, Object> kvPairsToMap(Object...args) {
-        HashMap<Object, Object> map = new HashMap<>();
-        for (int i=0; i<args.length; i+=2) {
-            map.put(args[i], args[i+1]);
-        }
-        return map;
-    }
-
-    /*
-    Print Family object
-     */
-    public void print(String msg) {
-        System.out.println(msg);
-        System.out.println(this);               // use toString method
-        System.out.println("=".repeat(50));
-    }
-
-    /*
-    Test Print family members
-     */
-    public String toString() {
+    Test Pretty Print of family members
+    */
+    public String prettyPrint() {
         StringBuilder outString;
 
         // get individual datq
@@ -116,5 +105,4 @@ public class Family {
         }
         return outString.toString();
     }
-
 }
