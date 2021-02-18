@@ -1,25 +1,30 @@
 package com.example.lessons.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /*
 Family Information Class
  */
+@Setter
+@Getter
 public class Family {
-    // Family Data
+    // Keys Used in HashMaps
+    static public final String personKy = "Person";
+    static public final String spouseKy = "Spouse";
+    static public final String childrenKy = "Children";
 
+    // Family Data
+    HashMap<Object, Object> family;
     public Person person;
     public Person spouse;
     public List<Person> children;
-
-    // Keys Used in HashMaps
-    static private final String personKy = "Person";
-    static private final String spouseKy = "Spouse";
-    static private final String childrenKy = "Children";
 
     /*
     Family constructor requires Individual
@@ -28,6 +33,7 @@ public class Family {
         this.person = new Person();
         this.spouse = new Person();
         this.children = new ArrayList<>();
+        this.family = kvPairsToMap(personKy, this.person, spouseKy, this.spouse, childrenKy, this.children);
     }
 
     /*
@@ -37,6 +43,7 @@ public class Family {
         this.person = new Person(name, age);
         this.spouse = new Person();
         this.children = new ArrayList<>();
+        this.family = kvPairsToMap(personKy, this.person, spouseKy, this.spouse, childrenKy, this.children);
     }
 
     /*
@@ -46,7 +53,6 @@ public class Family {
         if (person == null) { this.person = new Person(); }
         person.setName(name); person.setAge(age); person.setDob(dob);
     }
-    public Person getPerson () { return person; }
 
     /*
     Add spouse to Family
@@ -55,21 +61,25 @@ public class Family {
         if (spouse == null) { this.spouse = new Person(name, age); }
         else { spouse.setName(name); spouse.setAge(age); spouse.setDob(dob);}
     }
-    public Person getSpouse () { return spouse; }
 
-
-    /*
-    Add child(ren) to Family
-     */
-    public void setChild (String name, Integer age, Date dob) {
+    public void addChild (String name, Integer age, Date dob) {
         // initialization check
         if (this.children == null) {
             this.children = new ArrayList<>();
         }
         children.add(new Person(name, age, dob));
     }
-    public List<Person> getChildren () { return children; }
 
+    /*
+    Multiple key,value HashMap helper function
+     */
+    public static HashMap<Object, Object> kvPairsToMap(Object...args) {
+        HashMap<Object, Object> map = new HashMap<>();
+        for (int i=0; i<args.length; i+=2) {
+            map.put(args[i], args[i+1]);
+        }
+        return map;
+    }
 
     /*
     Print Family object
