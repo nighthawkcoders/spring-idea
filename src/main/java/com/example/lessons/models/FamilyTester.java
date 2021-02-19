@@ -79,7 +79,7 @@ public class FamilyTester {
 
         // add spouse to object
         person = new Person("Lora", 49, str2date("9/23/1971"));
-        mortensen.setPerson(person);
+        mortensen.setSpouse(person);
         print("Family Object Test, set spouse", mortensen);
 
         // add many children, notice usage of different amount of parameters
