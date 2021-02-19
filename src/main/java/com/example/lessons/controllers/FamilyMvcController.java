@@ -2,6 +2,7 @@ package com.example.lessons.controllers;
 
 import com.example.lessons.models.Family;
 import com.example.lessons.models.FamilyTester;
+import com.example.lessons.models.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,7 +32,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
         @param -  Class for form
     */
     @GetMapping("/family")
-    public String showForm(Family family) {
+    public String showForm(Family family, Model model) {
         return "mvc/family";
     }
 
@@ -44,7 +45,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
             return "mvc/family";
-        }
+        };
         // Redirect to next step
         redirectAttributes.addAttribute("familyJSON", FamilyTester.getJSON(family).toString());
         redirectAttributes.addAttribute("familyString", family.toString());

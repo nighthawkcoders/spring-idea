@@ -10,7 +10,12 @@
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
-    <div style="margin: 2%;">
+    <div class="jumbotron jumbotron-fluid" style="height: 50%; ">
+        <div class="row justify-content-center">
+            <div class="col-10" style="text-align: center;">
+                <h1>CRUD: Create</h1>
+            </div>
+        </div>
         <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
          This is known as a “bean-backed form” or "form-backing bean".
             th:object - the backend form object (bean object)
@@ -20,49 +25,35 @@
          Each field has supporting line for to show errors in validation
             th:errors - form input errors added when validation errors occur
          .-->
-        <form action="#" th:action="@{/family}" th:object="${family}" method="post">
-            <table>
-                <tr>
-                    <td colspan="2" class="divider"><hr /><h2>Applicant</h2></td>
-                </tr>
-                <tr>
-                    <td>Name:</td>
-                    <td><input type="text" th:field="*{person.name}" /></td>
-                    <td th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}">Name Error</td>
-                </tr>
-                <tr>
-                    <td>Age:</td>
-                    <td><input type="text" th:field="*{person.age}" /></td>
-                    <td th:if="${#fields.hasErrors('person.age')}" th:errors="*{person.age}">Age Error</td>
-                </tr>
-                <tr>
-                    <td>Date of Birth:</td>
-                    <td><input type="text" th:field="*{person.dob}" placeholder="MM/dd/yyyy" /></td>
-                    <td th:if="${#fields.hasErrors('person.dob')}" th:errors="*{person.dob}">Date Error</td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="divider"><hr /><h2>Spouse</h2></td>
-                </tr>
-                <tr>
-                    <td>Spouse:</td>
-                    <td><input type="text" th:field="*{spouse.name}" /></td>
-                    <td th:if="${#fields.hasErrors('spouse.name')}" th:errors="*{spouse.name}">Name Error</td>
-                </tr>
-                <tr>
-                    <td>Age:</td>
-                    <td><input type="text" th:field="*{spouse.age}" /></td>
-                    <td th:if="${#fields.hasErrors('spouse.age')}" th:errors="*{spouse.age}">Age Error</td>
-                </tr>
-                <tr>
-                    <td>Date of Birth:</td>
-                    <td><input type="text" th:field="*{spouse.dob}" placeholder="MM/dd/yyyy" /></td>
-                    <td th:if="${#fields.hasErrors('spouse.dob')}" th:errors="*{spouse.dob}">Date Error</td>
-                </tr>
-                <tr>
-                    <td><button type="submit">Submit</button></td>
-                </tr>
-            </table>
-        </form>
+        <div class="row courses-buttons justify-content-center">
+            <form method="POST" action="#" th:action="@{/family}" th:object="${family}" >
+                <table>
+                    <tr>
+                        <th><label for="person.name">Applicant</label></th>
+                        <th><label for="person.age">Age</label></th>
+                        <th><label for="person.dob">Date of Birth</label></th>
+                    </tr>
+                    <tr>
+                        <td><input id="person.name" type="text" th:field="*{person.name}" /></td>
+                        <td><input id="person.age" type="text" th:field="*{person.age}" /></td>
+                        <td><input id="person.dob" type="text" th:field="*{person.dob}" placeholder="MM/dd/yyyy" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="spouse.name">Spouse</label></th>
+                        <th><label for="spouse.age">Age</label></th>
+                        <th><label for="spouse.dob">Date of Birth</label></th>
+                    </tr>
+                    <tr>
+                        <td><input id="spouse.name" type="text" th:field="*{spouse.name}" /></td>
+                        <td><input id="spouse.age" type="text" th:field="*{spouse.age}" /></td>
+                        <td><input id="spouse.dob" type="text" th:field="*{spouse.dob}" placeholder="MM/dd/yyyy" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Add"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </div></body>
 
