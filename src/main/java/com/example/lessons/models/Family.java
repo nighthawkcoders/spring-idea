@@ -3,6 +3,8 @@ package com.example.lessons.models;
 // https://projectlombok.org/features/all
 import lombok.*;
 // Conventional Java data types
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,8 +18,13 @@ Family Information Class
 @ToString
 public class Family {
     // Family Data
+
+    @NotNull
+    @Valid
     public Person person;
+
     public Person spouse;
+
     public List<Person> children;
 
     public void addChild (String name, Integer age, Date dob) {

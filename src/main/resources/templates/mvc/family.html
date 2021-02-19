@@ -39,6 +39,11 @@
                         <td><input id="person.dob" type="text" th:field="*{person.dob}" placeholder="MM/dd/yyyy" /></td>
                     </tr>
                     <tr>
+                        <td th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}">Name Error</td>
+                        <td th:if="${#fields.hasErrors('person.age')}" th:errors="*{person.age}">Name Error</td>
+                        <td th:if="${#fields.hasErrors('person.dob')}" th:errors="*{person.dob}">Date Error</td>
+                    </tr>
+                    <tr>
                         <th><label for="spouse.name">Spouse</label></th>
                         <th><label for="spouse.age">Age</label></th>
                         <th><label for="spouse.dob">Date of Birth</label></th>
