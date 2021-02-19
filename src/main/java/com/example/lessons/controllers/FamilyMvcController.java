@@ -37,7 +37,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
-    @param - Person object with @Valid
+    @param - object with @Valid
     @param - BindingResult object
      */
     @PostMapping("/family")
@@ -45,7 +45,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
         // Validation of Family attributes, validation of nested object supported
         if (bindingResult.hasErrors()) {
             return "mvc/family";
-        };
+        }
         // Redirect to next step
         redirectAttributes.addAttribute("familyJSON", FamilyTester.getJSON(family).toString());
         redirectAttributes.addAttribute("familyString", family.toString());

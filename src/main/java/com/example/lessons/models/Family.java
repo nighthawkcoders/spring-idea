@@ -19,10 +19,10 @@ Family Information Class
 public class Family {
     // Family Data
 
-    @Valid  // validation of a nested object
+    @Valid  // validation of a child object
     public Person person;
 
-    public Person spouse;
+    @Valid public Person spouse;
 
     public List<Person> children;
 

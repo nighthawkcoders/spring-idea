@@ -20,7 +20,7 @@ public class Person {
     @Size(min=2, max=30): Allows names between 2 and 30 characters long.
      */
     @NotNull
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
 
     // @Min(18): Does not allow the age to be less than 18.

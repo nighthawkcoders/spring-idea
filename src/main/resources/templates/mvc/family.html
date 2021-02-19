@@ -29,24 +29,39 @@
             <form method="POST" action="#" th:action="@{/family}" th:object="${family}" >
                 <table>
                     <tr>
-                        <th><label for="person.name">Applicant</label></th>
-                        <th><label for="person.age">Age</label></th>
-                        <th><label for="person.dob">Date of Birth</label></th>
+                        <!-- Table Headings have errors built in -->
+                        <th>
+                            <label for="person.name" th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}" style="color:red">Name error</label>
+                            <label for="person.name" th:unless="${#fields.hasErrors('person.name')}">Name</label>
+                        </th>
+                        <th >
+                            <label for="person.age" th:if="${#fields.hasErrors('person.age')}" style="color:red">Age (number over 18)</label>
+                            <label for="person.age" th:unless="${#fields.hasErrors('person.age')}">Age</label>
+                        </th>
+                        <th >
+                            <label for="person.dob" th:if="${#fields.hasErrors('person.dob')}" style="color:red">Date of Birth (MM/dd/yyyy)</label>
+                            <label for="person.dob" th:unless="${#fields.hasErrors('person.dob')}">Date of Birth</label>
+                        </th>
                     </tr>
                     <tr>
+                        <!-- Table Rows reference child elements -->
                         <td><input id="person.name" type="text" th:field="*{person.name}" /></td>
                         <td><input id="person.age" type="text" th:field="*{person.age}" /></td>
                         <td><input id="person.dob" type="text" th:field="*{person.dob}" placeholder="MM/dd/yyyy" /></td>
                     </tr>
                     <tr>
-                        <td th:if="${#fields.hasErrors('person.name')}" th:errors="*{person.name}">Name Error</td>
-                        <td th:if="${#fields.hasErrors('person.age')}" th:errors="*{person.age}">Name Error</td>
-                        <td th:if="${#fields.hasErrors('person.dob')}" th:errors="*{person.dob}">Date Error</td>
-                    </tr>
-                    <tr>
-                        <th><label for="spouse.name">Spouse</label></th>
-                        <th><label for="spouse.age">Age</label></th>
-                        <th><label for="spouse.dob">Date of Birth</label></th>
+                        <th>
+                            <label for="spouse.name" th:if="${#fields.hasErrors('spouse.name')}" th:errors="*{spouse.name}" style="color:red">Name error</label>
+                            <label for="spouse.name" th:unless="${#fields.hasErrors('spouse.name')}">Name</label>
+                        </th>
+                        <th>
+                            <label for="spouse.age" th:if="${#fields.hasErrors('spouse.age')}" style="color:red">Age (number over 18)</label>
+                            <label for="spouse.age" th:unless="${#fields.hasErrors('spouse.age')}">Age</label>
+                        </th>
+                        <th>
+                            <label for="spouse.dob" th:if="${#fields.hasErrors('spouse.dob')}" style="color:red">Date of Birth (MM/dd/yyyy)</label>
+                            <label for="spouse.dob" th:unless="${#fields.hasErrors('spouse.dob')}">Date of Birth</label>
+                        </th>
                     </tr>
                     <tr>
                         <td><input id="spouse.name" type="text" th:field="*{spouse.name}" /></td>
