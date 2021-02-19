@@ -12,7 +12,8 @@
 <body><div layout:fragment="content" th:remove="tag">
     <div id="family_results" class="alert" style="margin: 30px;">
         <p>Congratulations! You have passed validation.</p>
-        <p th:text="${#request.getParameter('family')}">Text</p>
+        <p th:text="${#request.getParameter('familyString')}">Text</p>
+        <p th:text="${#request.getParameter('familyJSON')}">Text</p>
     </div>
 </div></body>
 

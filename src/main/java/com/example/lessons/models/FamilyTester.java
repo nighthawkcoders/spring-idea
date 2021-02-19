@@ -21,7 +21,7 @@ public class FamilyTester {
     Export a Family Object into a JSON node
         -- Jackson provides ObjectMapper
      */
-    private static JsonNode getJSON(Family obj) {
+    public static JsonNode getJSON(Family obj) {
         JsonNode node = null;
         ObjectMapper mapper = new ObjectMapper();
         try {

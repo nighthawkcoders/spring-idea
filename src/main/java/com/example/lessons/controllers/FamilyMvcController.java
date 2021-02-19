@@ -1,7 +1,7 @@
 package com.example.lessons.controllers;
 
 import com.example.lessons.models.Family;
-import com.example.lessons.models.Person;
+import com.example.lessons.models.FamilyTester;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -46,7 +46,8 @@ public class FamilyMvcController implements WebMvcConfigurer {
             return "mvc/family";
         }
         // Redirect to next step
-        redirectAttributes.addAttribute("family", family.toString());
+        redirectAttributes.addAttribute("familyJSON", FamilyTester.getJSON(family).toString());
+        redirectAttributes.addAttribute("familyString", family.toString());
         return "redirect:/familyresults";
     }
 }
