@@ -19,8 +19,7 @@ Family Information Class
 public class Family {
     // Family Data
 
-    @NotNull
-    @Valid
+    @Valid  // validation of a nested object
     public Person person;
 
     public Person spouse;

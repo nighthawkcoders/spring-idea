@@ -42,7 +42,7 @@ public class FamilyMvcController implements WebMvcConfigurer {
      */
     @PostMapping("/family")
     public String checkData(@Valid Family family, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        // Validation of Decorated PersonForm attributes
+        // Validation of Family attributes, validation of nested object supported
         if (bindingResult.hasErrors()) {
             return "mvc/family";
         };
