@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -53,4 +54,28 @@ public class PersonMvcController implements WebMvcConfigurer {
         // Redirect to next step
         return "redirect:/person";
     }
+
+    @GetMapping("/personedit/{id}")
+    public String personEdit(@PathVariable("id") int id, Model model) {
+        model.addAttribute("person", service.get(id));
+        return "mvc/personedit";
+    }
+
+    @PostMapping("/personedit")
+    public String personEditSave(@Valid Person person, BindingResult bindingResult) {
+        // Validation of Decorated PersonForm attributes
+        if (bindingResult.hasErrors()) {
+            return "mvc/personedit";
+        }
+        service.save(person);
+        // Redirect to next step
+        return "redirect:/person";
+    }
+
+    @GetMapping("/persondelete/{id}")
+    public String personDelete(@PathVariable("id") long id) {
+        service.delete(id);
+        return "redirect:/person";
+    }
+
 }
