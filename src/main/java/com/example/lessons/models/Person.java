@@ -7,12 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/*
+Person is a POJO, Plain Old Java Object.
+First set of decorators add functionality to POJO
+--- @Setter @Getter @ToString @NoArgsConstructor @RequiredArgsConstructor
+This decorator connect to database
+--- @Entity
+ */
 @Setter
 @Getter
 @ToString
@@ -25,7 +30,7 @@ public class Person {
     private Integer id;
 
     /*
-    @NotNull: Does not allow a null value, which is what Spring MVC generates if the entry is empty.
+    @NonNull: Places this in @RequiredArgsConstructor
     @Size(min=2, max=30): Allows names between 2 and 30 characters long.
      */
     @NonNull
