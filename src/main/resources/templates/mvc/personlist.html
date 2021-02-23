@@ -13,7 +13,7 @@
     <div style="margin: 2%;">
         <div align="center">
             <h1>Person List</h1>
-            <a href="/person">Create New Person</a>
+            <a href="/person/">Create New Person</a>
             <br/><br/>
 
             <table border="1" cellpadding="10">
@@ -22,6 +22,7 @@
                     <th>ID</th>
                     <th>Person</th>
                     <th>Age</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,10 @@
                     <td th:text="${person.id}">Person ID</td>
                     <td th:text="${person.name}">Name</td>
                     <td th:text="${person.age}">Age</td>
+                    <td>
+                        <a href="/person/">Edit</a>
+                        <a href="/person">Delete</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
