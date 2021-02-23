@@ -218,5 +218,16 @@ If there are no errors, restart NGINX so the changes take effect:
 
     pi@raspberrypi:~ $ sudo systemctl restart nginx
     
+## Setting up MonogoDB
+```
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install mongodb
+$ sudo systemctl status mongodb
+$ sudo systemctl start mongodb
+$ sudo systemctl enable mongodb //system boot
+$ sudo mongo
+```
+    
 
 
