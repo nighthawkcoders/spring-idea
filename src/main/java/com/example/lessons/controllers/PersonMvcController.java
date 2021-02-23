@@ -19,6 +19,7 @@ import java.util.List;
 @Controller
 public class PersonMvcController implements WebMvcConfigurer {
 
+    // Autowired enables Control to connect HTML and POJO Object to Database easily
     @Autowired
     private PersonService service;
 

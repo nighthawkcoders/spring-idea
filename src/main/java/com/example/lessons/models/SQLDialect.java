@@ -9,6 +9,9 @@ import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.Hibernate;
 import org.hibernate.type.StringType;
 
+/*
+This Dialect is brought into project to support SQLite
+ */
 public class SQLDialect extends Dialect {
     public SQLDialect() {
         registerColumnType(Types.BIT, "integer");

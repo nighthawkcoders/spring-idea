@@ -13,9 +13,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /*
 Person is a POJO, Plain Old Java Object.
-First set of decorators add functionality to POJO
+First set of annotations add functionality to POJO
 --- @Setter @Getter @ToString @NoArgsConstructor @RequiredArgsConstructor
-This decorator connect to database
+The last annotation connect to database
 --- @Entity
  */
 @Setter
