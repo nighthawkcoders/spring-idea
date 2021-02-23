@@ -31,7 +31,7 @@ public class Family {
         if (this.children == null) {
             this.children = new ArrayList<>();
         }
-        children.add(new Person(name, age, dob));
+        children.add(new Person( name, age, dob));
     }
 
     /*

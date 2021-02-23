@@ -51,8 +51,8 @@
                     </tr>
                     <tr>
                         <th>
-                            <label for="spouse.name" th:if="${#fields.hasErrors('spouse.name')}" th:errors="*{spouse.name}" style="color:red">Name error</label>
-                            <label for="spouse.name" th:unless="${#fields.hasErrors('spouse.name')}">Name</label>
+                            <label for="spouse.name" th:if="${#fields.hasErrors('spouse.name')}" th:errors="*{spouse.name}" style="color:red">Spouse error</label>
+                            <label for="spouse.name" th:unless="${#fields.hasErrors('spouse.name')}">Spouse</label>
                         </th>
                         <th>
                             <label for="spouse.age" th:if="${#fields.hasErrors('spouse.age')}" style="color:red">Age (number over 18)</label>

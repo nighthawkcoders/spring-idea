@@ -73,12 +73,12 @@ public class FamilyTester {
         Family mortensen = new Family();
         Person person;
 
-        person = new Person("John", 61, str2date("10/21/1959"));
+        person = new Person( "John", 61, str2date("10/21/1959"));
         mortensen.setPerson(person);
         print("Family Object Test, single", mortensen);
 
         // add spouse to object
-        person = new Person("Lora", 49, str2date("9/23/1971"));
+        person = new Person( "Lora", 49, str2date("9/23/1971"));
         mortensen.setSpouse(person);
         print("Family Object Test, set spouse", mortensen);
 
