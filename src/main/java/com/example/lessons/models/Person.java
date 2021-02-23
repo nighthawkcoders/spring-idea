@@ -27,7 +27,7 @@ The last annotation connect to database
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     /*
     @NonNull: Places this in @RequiredArgsConstructor
