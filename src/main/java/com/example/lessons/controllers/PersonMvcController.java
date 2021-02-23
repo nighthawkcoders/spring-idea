@@ -1,18 +1,33 @@
 package com.example.lessons.controllers;
 
 import com.example.lessons.models.Person;
+import com.example.lessons.models.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.validation.Valid;
+import java.util.List;
 
 // Built using article: https://spring.io/guides/gs/validating-form-input/
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
 @Controller
 public class PersonMvcController implements WebMvcConfigurer {
+
+    @Autowired
+    private PersonService service;
+
+    @GetMapping("/personlist")
+    public String person_list(Model model) {
+        List<Person> list = service.listAll();
+        model.addAttribute("list", list);
+        return "mvc/personlist";
+    }
 
     /*
     If all bound attribute are valid, a redirect occurs to this route and template.

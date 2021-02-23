@@ -73,21 +73,21 @@ public class FamilyTester {
         Family mortensen = new Family();
         Person person;
 
-        person = new Person( "John", 61, str2date("10/21/1959"));
+        person = new Person( "John", 61);
         mortensen.setPerson(person);
         print("Family Object Test, single", mortensen);
 
         // add spouse to object
-        person = new Person( "Lora", 49, str2date("9/23/1971"));
+        person = new Person( "Lora", 49);
         mortensen.setSpouse(person);
         print("Family Object Test, set spouse", mortensen);
 
         // add many children, notice usage of different amount of parameters
-        mortensen.addChild("Trent", 33, str2date("1/2/1988"));
-        mortensen.addChild("Corey", 31, str2date("3/24/1989"));
-        mortensen.addChild("Tiernan", 26, str2date("8/2/1994"));
-        mortensen.addChild("Claire", 23, str2date("7/7/1997"));
-        mortensen.addChild("Shay", 11, str2date("5/2/2009"));
+        mortensen.addChild("Trent", 33);
+        mortensen.addChild("Corey", 31);
+        mortensen.addChild("Tiernan", 26);
+        mortensen.addChild("Claire", 23);
+        mortensen.addChild("Shay", 11);
         print("Family Object Test, add children", mortensen);
     }
 }

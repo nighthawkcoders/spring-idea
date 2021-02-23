@@ -36,8 +36,4 @@ public class Person {
     @NonNull
     @Min(16)
     private Integer age;
-
-    @NonNull
-    @DateTimeFormat(pattern = "MM/dd/yyyy")
-    private Date dob;
 }

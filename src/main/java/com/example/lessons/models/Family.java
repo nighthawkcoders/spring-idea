@@ -26,12 +26,12 @@ public class Family {
 
     public List<Person> children;
 
-    public void addChild (String name, Integer age, Date dob) {
+    public void addChild (String name, Integer age) {
         // initialization check
         if (this.children == null) {
             this.children = new ArrayList<>();
         }
-        children.add(new Person( name, age, dob));
+        children.add(new Person( name, age));
     }
 
     /*
@@ -42,19 +42,19 @@ public class Family {
 
         // get individual datq
         outString = new StringBuilder(String.format("Person: %s, %s, %s%n",
-                person.getName(), person.getAge(), person.getDob()));
+                person.getName(), person.getAge()));
 
         // get spouse data
         if ( spouse != null)
             outString.append(String.format("Spouse: %s, %s, %s%n",
-                    spouse.getName(), spouse.getAge(), spouse.getDob()));
+                    spouse.getName(), spouse.getAge()));
 
         // get children data
         if (children != null) {
             // System.out.println(family.get(childrenKy));
             for (Person child : children) {
                 outString.append(String.format("Child: %s, %s, %s%n",
-                        child.getName(), child.getAge(), child.getDob()));
+                        child.getName(), child.getAge()));
             }
         }
         return outString.toString();
