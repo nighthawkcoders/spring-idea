@@ -23,41 +23,34 @@ public class PersonMvcController implements WebMvcConfigurer {
     @Autowired
     private PersonService service;
 
-    @GetMapping("/personlist")
-    public String person_list(Model model) {
+    @GetMapping("/person")
+    public String person(Model model) {
         List<Person> list = service.listAll();
         model.addAttribute("list", list);
-        return "mvc/personlist";
-    }
-
-    /*
-    If all bound attribute are valid, a redirect occurs to this route and template.
-     */
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/personresults").setViewName("mvc/personresults");
+        return "mvc/person";
     }
 
     /*  The HTML template Forms and PersonForm attributes are bound
         @return - template for person form
         @param - Person Class
     */
-    @GetMapping("/person")
-    public String showForm(Person person) {
-        return "mvc/person";
+    @GetMapping("/personadd")
+    public String personAdd(Person person) {
+        return "mvc/personadd";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
     @param - Person object with @Valid
     @param - BindingResult object
      */
-    @PostMapping("/person")
-    public String checkData(@Valid Person person, BindingResult bindingResult) {
+    @PostMapping("/personadd")
+    public String personSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "mvc/person";
+            return "mvc/personadd";
         }
+        service.save(person);
         // Redirect to next step
-        return "redirect:/personresults";
+        return "redirect:/person";
     }
 }

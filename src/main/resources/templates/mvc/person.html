@@ -5,39 +5,40 @@
       layout:decorate="~{fragments/layout}" lang="en">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>Person Form</title>
+    <title>Person List</title>
 </div></head>
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
     <div style="margin: 2%;">
-        <h3>Welcome, Enter The Persons Details</h3>
-        <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
-         This is known as a “bean-backed form” or "form-backing bean".
-            th:object - the backend form object (bean object)
-         There are two fields in the Person bean,
-            th:field="*{name}"
-            th:field="*{age}".
-         Each field has supporting line for to show errors in validation
-            th:errors - form input errors added when validation errors occur
-         .-->
-        <form action="#" th:action="@{/person}" th:object="${person}" method="post">
-            <table>
+        <div align="center">
+            <h1>Person List</h1>
+            <a href="/personadd/">Add Person</a>
+            <br/><br/>
+
+            <table border="1" cellpadding="10">
+                <thead>
                 <tr>
-                    <td>Name:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                    <th>ID</th>
+                    <th>Person</th>
+                    <th>Age</th>
+                    <th>Action</th>
                 </tr>
-                <tr>
-                    <td>Age:</td>
-                    <td><input type="text" th:field="*{age}" /></td>
-                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                </thead>
+                <tbody>
+                <tr th:each="person : ${list}">
+                    <td th:text="${person.id}">Person ID</td>
+                    <td th:text="${person.name}">Name</td>
+                    <td th:text="${person.age}">Age</td>
+                    <td>
+                        <a href="/personadd/">Edit</a>
+                        <a href="/personadd">Delete</a>
+                    </td>
                 </tr>
-                <tr>
-                    <td><button type="submit">Submit</button></td>
-                </tr>
+                </tbody>
             </table>
-        </form>
+
+        </div>
     </div>
 </div></body>
 
