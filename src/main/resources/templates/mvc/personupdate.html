@@ -28,6 +28,8 @@
                 <tr>
                     <td>ID:</td>
                     <td th:text="${person.id}">Person ID</td>
+                    <!-- hidden field is CRITICAL else id will be null on action -->
+                    <td><input type="hidden" th:field="*{id}" readonly="readonly" /></td>
                 </tr>
                 <tr>
                     <td>Name:</td>
