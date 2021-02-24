@@ -48,7 +48,7 @@ public class PersonMvcController implements WebMvcConfigurer {
     public String personSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "mvc/personcreeate";
+            return "mvc/personcreate";
         }
         service.save(person);
         // Redirect to next step

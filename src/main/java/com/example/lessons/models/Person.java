@@ -39,6 +39,6 @@ public class Person {
 
     // @Min(18): Does not allow the age to be less than 18.
     @NonNull
-    @Min(16)
+    @Min(11)
     private Integer age;
 }
