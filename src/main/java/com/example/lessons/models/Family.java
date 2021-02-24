@@ -41,19 +41,19 @@ public class Family {
         StringBuilder outString;
 
         // get individual datq
-        outString = new StringBuilder(String.format("Person: %s, %s, %s%n",
+        outString = new StringBuilder(String.format("Person: %s, %s%n",
                 person.getName(), person.getAge()));
 
         // get spouse data
         if ( spouse != null)
-            outString.append(String.format("Spouse: %s, %s, %s%n",
+            outString.append(String.format("Spouse: %s, %s%n",
                     spouse.getName(), spouse.getAge()));
 
         // get children data
         if (children != null) {
             // System.out.println(family.get(childrenKy));
             for (Person child : children) {
-                outString.append(String.format("Child: %s, %s, %s%n",
+                outString.append(String.format("Child: %s, %s%n",
                         child.getName(), child.getAge()));
             }
         }

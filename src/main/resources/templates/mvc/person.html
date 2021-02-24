@@ -13,7 +13,7 @@
     <div style="margin: 2%;">
         <div align="center">
             <h1>Person List</h1>
-            <a href="/personadd/">Add Person</a>
+            <a href="/personcreate/">Create Person</a>
             <br/><br/>
 
             <table border="1" cellpadding="10">
@@ -31,7 +31,7 @@
                     <td th:text="${person.name}">Name</td>
                     <td th:text="${person.age}">Age</td>
                     <td>
-                        <a th:href="@{/personedit/{id}(id = ${person.id})}">Edit</a>
+                        <a th:href="@{/personupdate/{id}(id = ${person.id})}">Update</a>
                         <a th:href="@{/persondelete/{id}(id = ${person.id})}">Delete</a>
                     </td>
                 </tr>

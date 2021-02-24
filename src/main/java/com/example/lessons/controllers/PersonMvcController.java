@@ -20,7 +20,7 @@ import java.util.List;
 @Controller
 public class PersonMvcController implements WebMvcConfigurer {
 
-    // Autowired enables Control to connect HTML and POJO Object to Database easily
+    // Autowired enables Control to connect HTML and POJO Object to Database easily for CRUD
     @Autowired
     private PersonService service;
 
@@ -35,37 +35,37 @@ public class PersonMvcController implements WebMvcConfigurer {
         @return - template for person form
         @param - Person Class
     */
-    @GetMapping("/personadd")
+    @GetMapping("/personcreate")
     public String personAdd(Person person) {
-        return "mvc/personadd";
+        return "mvc/personcreate";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
     @param - Person object with @Valid
     @param - BindingResult object
      */
-    @PostMapping("/personadd")
+    @PostMapping("/personcreate")
     public String personSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "mvc/personadd";
+            return "mvc/personcreeate";
         }
         service.save(person);
         // Redirect to next step
         return "redirect:/person";
     }
 
-    @GetMapping("/personedit/{id}")
-    public String personEdit(@PathVariable("id") int id, Model model) {
+    @GetMapping("/personupdate/{id}")
+    public String personUpdate(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", service.get(id));
-        return "mvc/personedit";
+        return "mvc/personupdate";
     }
 
-    @PostMapping("/personedit")
-    public String personEditSave(@Valid Person person, BindingResult bindingResult) {
+    @PostMapping("/personupdate")
+    public String personUpdateSave(@Valid Person person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
-            return "mvc/personedit";
+            return "mvc/personupdate";
         }
         service.save(person);
         // Redirect to next step
