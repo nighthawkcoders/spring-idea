@@ -20,7 +20,8 @@ public class Family {
     @Valid  // validation of a child object
     public Person person;
 
-    @Valid public Person spouse;
+    @Valid
+    public Person spouse;
 
     public List<Person> children;
 
