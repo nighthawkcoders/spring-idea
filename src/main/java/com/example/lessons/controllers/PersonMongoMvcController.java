@@ -55,7 +55,7 @@ public class PersonMongoMvcController implements CommandLineRunner {
 
     @GetMapping("/mongo/personupdate/{id}")
     public String personUpdate(@PathVariable("id") String id, Model model) {
-        model.addAttribute("person", repository.findById(id));
+        model.addAttribute("person", repository.findById(id).get());
         return "mvc/mongo/personupdate";
     }
 
