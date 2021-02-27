@@ -1,12 +1,10 @@
-package com.example.lessons.models;
+package com.example.lessons.modelsSQL;
 
 // https://projectlombok.org/features/all
 import lombok.*;
 // Conventional Java data types
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /*

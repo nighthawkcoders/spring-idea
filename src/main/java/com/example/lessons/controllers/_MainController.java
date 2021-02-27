@@ -1,4 +1,4 @@
-package com.example.lessons;
+package com.example.lessons.controllers;
 /* MVC code that shows defining a simple Model, calling View, and this file serving as Controller
  * Web Content with Spring MVCSpring Example: https://spring.io/guides/gs/serving-web-con
  */
@@ -21,7 +21,7 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
-public class MainController {
+public class _MainController {
 
     @GetMapping("/greet")    // CONTROLLER handles GET request for /greeting, maps it to greeting() and does variable bindings
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {

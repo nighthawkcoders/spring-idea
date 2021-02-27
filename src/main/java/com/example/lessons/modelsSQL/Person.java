@@ -1,4 +1,4 @@
-package com.example.lessons.models;
+package com.example.lessons.modelsSQL;
 
 import lombok.*;
 
@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 /*
 Person is a POJO, Plain Old Java Object.

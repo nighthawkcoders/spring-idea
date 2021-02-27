@@ -1,4 +1,4 @@
-package com.example.lessons.models;
+package com.example.lessons.modelsSQL;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

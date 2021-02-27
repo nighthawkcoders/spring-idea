@@ -5,13 +5,13 @@
       layout:decorate="~{fragments/layout}" lang="en">
 
 <head><div layout:fragment="metadata" th:remove="tag">
-    <title>Person Update</title>
+    <title>Person Form</title>
 </div></head>
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
     <div style="margin: 2%;">
-        <h3>Welcome, Update The Persons Details</h3>
+        <h3>Welcome, Enter The Persons Details</h3>
         <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
          This is known as a “bean-backed form” or "form-backing bean".
             th:object - the backend form object (bean object)
@@ -20,17 +20,9 @@
             th:field="*{age}".
          Each field has supporting line for to show errors in validation
             th:errors - form input errors added when validation errors occur
-         Reference
-            https://www.baeldung.com/spring-boot-crud-thymeleaf
          .-->
-        <form action="#" th:action="@{/personupdate}" th:object="${person}" method="POST">
+        <form action="#" th:action="@{/mongo/personcreate}" th:object="${person}" method="POST">
             <table>
-                <tr>
-                    <td>ID:</td>
-                    <td th:text="${person.id}">Person ID</td>
-                    <!-- hidden field is CRITICAL else id will be null on action -->
-                    <td><input type="hidden" th:field="*{id}" readonly="readonly" /></td>
-                </tr>
                 <tr>
                     <td>Name:</td>
                     <td><input type="text" th:field="*{name}" /></td>
@@ -42,7 +34,7 @@
                     <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Save</button></td>
+                    <td><button type="submit">Add</button></td>
                 </tr>
             </table>
         </form>

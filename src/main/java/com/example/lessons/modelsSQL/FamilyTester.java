@@ -1,4 +1,4 @@
-package com.example.lessons.models;
+package com.example.lessons.modelsSQL;
 
 // Jackson Object Mapping support
 import com.fasterxml.jackson.core.JsonProcessingException;
