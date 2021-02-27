@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
@@ -35,8 +36,8 @@ public class Person {
     @Size(min = 2, max = 30, message = "Name (2 to 30 chars)")
     private String name;
 
-    // @Min(18): Does not allow the age to be less than 18.
+    // Age is restricted
     @NonNull
-    @Min(11)
+    @Min(11) @Max(120)
     private Integer age;
 }

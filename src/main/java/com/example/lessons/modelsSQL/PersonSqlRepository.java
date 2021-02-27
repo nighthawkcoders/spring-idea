@@ -5,31 +5,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 /*
-This class is an instance of PersonRepository
+This class is an instance of Java Persistence API (JPA)
 -- @Autowired annotation. Allows Spring to resolve and inject collaborating beans into our bean.
--- Spring Data JPA will generate a proxy instance of ProductRepository
--- Look at all the CRUD methods that we can use with our database
+-- Spring Data JPA will generate a proxy instance
+-- Below are the CRUD methods that we can use with our database
 */
 @Service
 @Transactional
-public class PersonService {
+public class PersonSqlRepository {
 
     @Autowired
-    private PersonRepository prep;
+    private PersonJpaRepository jpa;
 
     public List<Person> listAll() {
-        return prep.findAll();
+        return jpa.findAll();
     }
 
     public void save(Person person) {
-        prep.save(person);
+        jpa.save(person);
     }
 
     public Person get(long id) {
-        return prep.findById(id).get();
+        return jpa.findById(id).get();
     }
 
     public void delete(long id) {
-        prep.deleteById(id);
+        jpa.deleteById(id);
     }
 }

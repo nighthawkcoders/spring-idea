@@ -1,7 +1,7 @@
 package com.example.lessons.controllers;
 
 import com.example.lessons.modelsSQL.Person;
-import com.example.lessons.modelsSQL.PersonService;
+import com.example.lessons.modelsSQL.PersonSqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +20,11 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
 
     // Autowired enables Control to connect HTML and POJO Object to Database easily for CRUD
     @Autowired
-    private PersonService service;
+    private PersonSqlRepository repository;
 
     @GetMapping("/sql/person")
     public String person(Model model) {
-        List<Person> list = service.listAll();
+        List<Person> list = repository.listAll();
         model.addAttribute("list", list);
         return "mvc/sql/person";
     }
@@ -48,14 +48,14 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         if (bindingResult.hasErrors()) {
             return "mvc/sql/personcreate";
         }
-        service.save(person);
+        repository.save(person);
         // Redirect to next step
         return "redirect:/sql/person";
     }
 
     @GetMapping("/sql/personupdate/{id}")
     public String personUpdate(@PathVariable("id") int id, Model model) {
-        model.addAttribute("person", service.get(id));
+        model.addAttribute("person", repository.get(id));
         return "mvc/sql/personupdate";
     }
 
@@ -65,14 +65,14 @@ public class PersonSqlMvcController implements WebMvcConfigurer {
         if (bindingResult.hasErrors()) {
             return "mvc/sql/personupdate";
         }
-        service.save(person);
+        repository.save(person);
         // Redirect to next step
         return "redirect:/sql/person";
     }
 
     @GetMapping("/sql/persondelete/{id}")
     public String personDelete(@PathVariable("id") long id) {
-        service.delete(id);
+        repository.delete(id);
         return "redirect:/sql/person";
     }
 
