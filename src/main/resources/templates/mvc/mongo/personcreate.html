@@ -12,24 +12,15 @@
 <body><div layout:fragment="content" th:remove="tag">
     <div style="margin: 2%;">
         <h3>Welcome, Enter The Persons Details</h3>
-        <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
-         This is known as a “bean-backed form” or "form-backing bean".
-            th:object - the backend form object (bean object)
-         There are two fields in the Person bean,
-            th:field="*{name}"
-            th:field="*{age}".
-         Each field has supporting line for to show errors in validation
-            th:errors - form input errors added when validation errors occur
-         .-->
-        <form action="#" th:action="@{/mongo/personcreate}" th:object="${person}" method="POST">
+        <form action="#" th:action="@{/mongo/personcreate}" method="POST">
             <table>
                 <tr>
                     <td>Name:</td>
-                    <td><input type="text" th:value="${name}" /></td>
+                    <td><input type="text" name="name" th:field="${person.name}" /></td>
                 </tr>
                 <tr>
                     <td>Age:</td>
-                    <td><input type="text" th:value="${age}" /></td>
+                    <td><input type="text" name="age" th:field="${person.age}" /></td>
                 </tr>
                 <tr>
                     <td><button type="submit">Add</button></td>

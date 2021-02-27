@@ -2,6 +2,7 @@ package com.example.lessons.controllers;
 
 import com.example.lessons.modelsMongo.PersonMongo;
 import com.example.lessons.modelsMongo.PersonMongoRepository;
+import com.example.lessons.modelsSQL.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,8 @@ public class PersonMongoMvcController implements CommandLineRunner {
         @param - Person Class
     */
     @GetMapping("/mongo/personcreate")
-    public String personAdd(PersonMongo person) {
+    public String personCreate(Model model) {
+        model.addAttribute("person", new PersonMongo());
         return "mvc/mongo/personcreate";
     }
 
@@ -43,7 +45,7 @@ public class PersonMongoMvcController implements CommandLineRunner {
     @param - BindingResult object
      */
     @PostMapping("/mongo/personcreate")
-    public String personSave(@Valid PersonMongo person, BindingResult bindingResult) {
+    public String personCreateSave(@Valid PersonMongo person, BindingResult bindingResult) {
         // Validation of Decorated PersonForm attributes
         if (bindingResult.hasErrors()) {
             return "mvc/mongo/personcreate";
@@ -66,7 +68,6 @@ public class PersonMongoMvcController implements CommandLineRunner {
             return "mvc/mongo/personupdate";
         }
         repository.save(person);
-        // Redirect to next step
         return "redirect:/mongo/person";
     }
 
