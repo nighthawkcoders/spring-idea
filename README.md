@@ -215,7 +215,7 @@ If there are no errors, restart NGINX so the changes take effect:
 
     $ sudo systemctl restart nginx
     
-## Setting up MonogoDB on Ubuntu
+## Setting up MonogoDB (works on Ubuntu, RPi OS is NOT working)
 This project requires a more recent MongoDB, [4.4](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) as of this writing. 
 ```
 $ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
@@ -268,7 +268,7 @@ $ sudo apt install default-jdk
 $ javac -version
 ```
 
-## Build and ru project on Ubuntu
+## Build and run project
 Prerequisite is Maven install, as well as MongoDB and SQLite (above)
 ```
 $ sudo apt update
