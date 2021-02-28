@@ -179,19 +179,19 @@ To run and start application automatically it will require a JAR file from previ
 ## Java service commands using systemctl
 Running these commands will test your service:
  
-    pi@raspberrypi:~ $ sudo systemctl start <my_service_file>.service
-    pi@raspberrypi:~ $ sudo systemctl stop <my_service_file>.service
+    $ sudo systemctl start <my_service_file>.service
+    $ sudo systemctl stop <my_service_file>.service
 
 Running these commands will enable or disable service at a reboot:
 
-    pi@raspberrypi:~ $ sudo systemctl enable <my_service_file>.service
-    pi@raspberrypi:~ $ sudo systemctl disable <my_service_file>.service
+    $ sudo systemctl enable <my_service_file>.service
+    $ sudo systemctl disable <my_service_file>.service
 
 ## Nginx service configuration
 Now that the Spring application is running as a service, an Nginx proxy allows opening the application to an unprivileged port and setting up SSL.
 
 Install Nginx
-    pi@raspberrypi:~ $ sudo apt install nginx
+    $ sudo apt install nginx
 
 Create an Nginx configuration for the reverse proxy, File: /etc/nginx/sites-availble/<my_nginx_file>
     
@@ -211,12 +211,12 @@ Create an Nginx configuration for the reverse proxy, File: /etc/nginx/sites-avai
 ## Nginx service commands
 Test the configuration to make sure there are no errors:
 
-    pi@raspberrypi:~ $ sudo ln -s /etc/nginx/sites-available/<my_nginx_file> /etc/nginx/sites-enabled
-    pi@raspberrypi:~ $ sudo nginx -t
+    $ sudo ln -s /etc/nginx/sites-available/<my_nginx_file> /etc/nginx/sites-enabled
+    $ sudo nginx -t
 
 If there are no errors, restart NGINX so the changes take effect:
 
-    pi@raspberrypi:~ $ sudo systemctl restart nginx
+    $ sudo systemctl restart nginx
     
 ## Setting up MonogoDB on Ubuntu
 This project requires a more recent MongoDB, [4.4](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) as of this writing. 
