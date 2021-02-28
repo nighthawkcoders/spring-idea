@@ -218,15 +218,78 @@ If there are no errors, restart NGINX so the changes take effect:
 
     pi@raspberrypi:~ $ sudo systemctl restart nginx
     
-## Setting up MonogoDB
+## Setting up MonogoDB on Ubuntu
+This project requires a more recent MongoDB, [4.4](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) as of this writing. 
+```
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt-get install -y mongodb-org
+$ sudo systemctl status mongodb
+$ sudo systemctl enable mongodb //enable at system boot
+$ mongo --version
+```
+Basic MongoDB commands, run mongo anywhere on host
+```
+$ mongo
+> show dbs
+> show tables
+> db.personMongo.find()
+```
+
+## Setting up Sqlite3
+SQLite does not have a server process like most SQL databases.  
 ```
 $ sudo apt update
 $ sudo apt upgrade
-$ sudo apt install mongodb
-$ sudo systemctl status mongodb
-$ sudo systemctl start mongodb
-$ sudo systemctl enable mongodb //system boot
-$ sudo mongo
+$ sudo apt install sqlite3, libsqlite3-dev
+$ sqlite3 --version
+```
+Basic SQLite commands, run sqlite3 in Project directory where sqlite3 directory is created
+```
+$ cd spring-idea
+$ sqlite3 sqlite.db
+sqlite> .schema
+sqlite> .tables
+sqlite> select * from person;
+```
+## Setting up Java runtime and development
+Java is two pieces, we will need both if you want to run and build 
+```
+$ sudo apt update
+$ sudo apt upgrade
+```
+Install Java Runtime Environment
+```
+$ sudo apt install default-jre
+$ java -version
+```
+Install Java Development Kit
+```
+$ sudo apt install default-jdk
+$ javac -version
+```
+
+## Build and ru project on Ubuntu
+Prerequisite is Maven install, as well as MongoDB and SQLite (above)
+```
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install maven
+$ mvn -version
+```
+Clone and build spring-idea repository
+```
+$ cd
+$ git clone https://github.com/nighthawkcoders/spring-idea.git
+$ cd spring-idea
+$ mvnw package
+```
+Run and test you java project
+```
+$ cd
+$ java -jar spring-idea/target/serving-web-content-0.0.1-SNAPSHOT.jar
 ```
     
 
