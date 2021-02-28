@@ -52,7 +52,7 @@ Raspberry Pi 4 specification
 
 Purchase Notes:  Keyboard, Mouse, Monitor are optional.  RPi advantages over AWS: 1. One time cost  2. All kinds of tinker projects in IOT realm can be performed using GPIO pins.  As for purchase options, CanaKit (my prefered) has options on Amazon that meet the bulleted list of requirements. There is a new option on raspberrypi.org that describes RPi as built into a keybaord (could be bulky in my use cases).   
 
-Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple.  At boot select Raspberry Pi OS (recently switched to Ubuntu because of Mongo limitations on RPi OS) and you are on your way.  Since this will be private IP host on your home network, Port Forwarding is required to make your website visible on the Internet. 
+Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple.  At boot select Raspberry Pi OS (or pick Ubuntu because of Java and Mongo incompatibilities on RPi OS) and you are on your way.  Since this will be private IP host on your home network, Port Forwarding is required to make your website visible on the Internet. 
 
 Runtime Notes: Mostly I use VNC Viewer to connect to the RPi.  This is a full desktop remote display tool.  RealVNC lets you share full desktop with cohorts.  If you reboot RPi, you need a monitor connected at reboot to maintain VNC screen share functionality.  Reboot will cause screen buffer not to be recognized unless HDMI is present.  There may be a dummy (mini) HDMI plug that could overcomee this issue.  Otherwise, after setup your RPi could be headless.
  
