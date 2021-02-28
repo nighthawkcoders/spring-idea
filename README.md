@@ -106,14 +106,14 @@ Review your instance launch details. Click Launch to assign a key pair to your i
 
 Manage your PEM file, rename and move to SSH configuration directory, setting permission on my PEM file to protect it:
   
-    MacBook-Pro-2:~ johnmortensen$ cd
-    MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem .ssh/ec2spring.pem
-    MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 .ssh/ec2spring.pem
+    MacBook-Pro-2:~ $ cd
+    MacBook-Pro-2:~ $ sudo mv spring.pem .ssh/ec2spring.pem
+    MacBook-Pro-2:~ $ sudo chmod 600 .ssh/ec2spring.pem
 
 SSH command
 
-    MacBook-Pro-2:~ johnmortensen$ cd
-    MacBook-Pro-2:~ johnmortensen$ sudo ssh -i .ssh/ec2spring.pem ubuntu@52.34.146.159
+    MacBook-Pro-2:~ $ cd
+    MacBook-Pro-2:~ $ sudo ssh -i .ssh/ec2spring.pem ubuntu@52.34.146.159
    
 This should lead you to a NEW terminal prompt on ubuntu:
 
