@@ -1,5 +1,6 @@
 # The spring-idea repo is a very simple introduction to Spring
-Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes, it has no real project purpose, just educational.  This README has a great deal of emphasis on deployment.  A Sping/Java Web server project requires deployment.  Additionally, AP Computer Science and CTE have a key focus on students understanding the Internet and being a part of the WWW.  As a Computer Science student or professional being part of the WWW is a launch pad to limitless opportunties.  Additionally, in the every increasing Virtual setting for work and school Spring/Java provide fuel toward life required skills.
+Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes, it has no real commercial purpose, just educational.  
+This README has a great deal of emphasis on deployment (aka DevOps).  A Sping/Java Web server project requires deployment.  AP Computer Science and Career Technical Education (CTE) have a key focus on students understanding the Internet and being a part of the WWW.  As a Computer Science student or as a Computer Science professional being part of the WWW is a launch pad to limitless opportunties.  The Spring/Java framework provides fuel toward the increasing demand of being virually productive in our modern school and career environments.
 
 ## Run this project and try to understand some of its parts.  Be sure to upgraded to IntelliJ IDEA Ultimate!!!  Then clone it.
 <OL> 
