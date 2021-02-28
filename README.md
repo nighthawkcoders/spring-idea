@@ -135,15 +135,12 @@ In the navigation bar at the left, expand "SSH" and select "Auth". Under "privat
 ![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/puttyauth.png)
 
 
-# Instruction on deploying Spring/Java Jar file to Raspberry Pi OS or AWS EC2 Ubuntu
-Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
+# Instruction on deploying Spring/Java Jar file to Raspberry Pi OS or Ubuntu (AWS or RPi)
+Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.  
 
-First you need to install Java on your OS.  The default as of this writing is OpenJDK 11 for both Raspberry Pi OS and Ubuntu.
-
-    pi@raspberrypi:~ $ sudo apt update; sudo apt upgrade
-    pi@raspberrypi:~ $ sudo apt install default-jdk
+To run this project you will need Java, SQLite3, MongoDB.  Look for instructions at bottom of this page
     
-## Move JAR file to your deployment host with sftp (secure file transfer protocol).  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS
+## Move JAR file to your deployment host with sftp (secure file transfer protocol).  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS.
 
     MacBook-Pro-2:~ sftp -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
     Connected to ubuntu@52.34.146.159.
