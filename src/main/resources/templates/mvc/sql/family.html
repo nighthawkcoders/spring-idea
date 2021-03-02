@@ -20,6 +20,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Family Name</th>
                     <th>Contact</th>
                     <th>Spouse</th>
                     <th>Action</th>
@@ -28,6 +29,7 @@
                 <tbody>
                 <tr th:each="family : ${list}">
                     <td th:text="${family.id}">Family ID</td>
+                    <td th:text="${family.name}">Family ID</td>
                     <td th:text="${family.primary.name}">Contacts</td>
                     <td th:text="${family.spouse.name}">Spouse</td>
                     <td>
