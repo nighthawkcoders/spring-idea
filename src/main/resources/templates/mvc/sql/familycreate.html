@@ -31,18 +31,19 @@
                 <tr>
                     <td>Contact:</td>
                     <td>
-                        <select th:field="*{primary}" class="form-control" required />
+                        <select th:field="*{primary}" class="form-control" required/>
                         <th:block th:each="person : ${listPersons}">
-                            <option th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}" th:value="${person.id}">
+                            <option th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                    th:value="${person.id}">
                         </th:block>
                     </td>
-                </tr>
-                <tr>
+
                     <td>Spouse:</td>
                     <td>
                         <select th:field="*{spouse}" class="form-control"/>
                         <th:block th:each="person : ${listPersons}">
-                            <option th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}" th:value="${person.id}">
+                            <option th:text="${person.id} + ': ' + ${person.name} + ', ' + ${person.age}"
+                                    th:value="${person.id}">
                         </th:block>
                     </td>
                 </tr>
