@@ -1,5 +1,11 @@
-# The spring-idea repo is a very simple introduction to Spring
-Purpose of this repo is to build up the very basics of Spring and Java.  This is used for educational purposes, it has no real project purpose, just educational.  This README has a great deal of emphasis on deployment.  A Sping/Java Web server project requires deployment.  Additionally, AP Computer Science and CTE have a key focus on students understanding the Internet and being a part of the WWW.  As a Computer Science student or professional being part of the WWW is a launch pad to limitless opportunties.  Additionally, in the every increasing Virtual setting for work and school Spring/Java provide fuel toward life required skills.
+# The spring-idea repo is a simple introduction to Spring, Spring Boot, Spring MVC, Thymeleaf, SQL (sqlite3), and MongoDB
+Purpose of this repo is to build up the very basics of Spring and Java.  This repository is used for educational purposes, it has no real commercial purpose, just educational.  It touches in Model (POJOs, SQL and Mongo), View (HTML, CSS, JS, Thymeleaf), and Control (@Controller, @GetMapping, @AutoWired,..).
+
+This README has a great deal of emphasis on deployment (aka DevOps).  A Sping/Java Web server project requires deployment.  AP Computer Science and Career Technical Education (CTE) have a key focus on students understanding the Internet and being a part of the WWW.  As a Computer Science student or as a Computer Science professional being part of the WWW is a launch pad to limitless opportunties. Deployment of a Spring/Java Web Application provides the student with a crown of sucess toward the increasing demand of being virually productive in our modern school and career environments. 
+
+The Java code focuses on every element of Computer Science "A", while maintaining key elements of CTE.  The Plain Old Java Objects (POJOs) defined in this project are the basis of writing and planning Java classes.  Throughout the definition of HTML/Thymeleaf Web Forms and POJO class definition the student is able to learn the answer to 'why a Class'.  The Spring/Java framework and layers (Web, Service, and Repository) illustrate effective and persistent usage of Java Class modeling.  Additionally, the distinction and value of Data Types (primitive and class) become very important as you are working between the text based world of the Web and try to persist and evaluate algoritms numbers (Integer, Double).  To move data between layers Arrays of POJO classes are common, as well as using modern Java management types like HashMaps.  The HashMap, aka Dictionary or Java Script Object Notation (JSON), are used frequently in moving data in and out of POJO to HTML or Mongo. Algorithms such as recursion and sorting naturally fit into this work.
+
+In conclusion, as a derivative of this project student teams (Agile Scrum teams) are expected to make their own Project including an Easter Egg section that contains College Board (CB) fundamentals augmented with visuals and inputs.  The Project and Scrum team enables student to practice the 21st century 4Cs (communication, collaboration, crtitical thinking, and creativity) while mastering CB Units #1-#10.  The SCRUM team is where the real magic happens.   
 
 ## Run this project and try to understand some of its parts.  Be sure to upgraded to IntelliJ IDEA Ultimate!!!  Then clone it.
 <OL> 
@@ -52,7 +58,7 @@ Raspberry Pi 4 specification
 
 Purchase Notes:  Keyboard, Mouse, Monitor are optional.  RPi advantages over AWS: 1. One time cost  2. All kinds of tinker projects in IOT realm can be performed using GPIO pins.  As for purchase options, CanaKit (my prefered) has options on Amazon that meet the bulleted list of requirements. There is a new option on raspberrypi.org that describes RPi as built into a keybaord (could be bulky in my use cases).   
 
-Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple.  At boot select Raspberry Pi OS and you are on your way.  Since this will be private IP host on your home network, Port Forwarding is required to make your website visible on the Internet. 
+Webserver deployment preparation: RPi with NOOBS installed on SSD is very simple.  At boot select Raspberry Pi OS (or pick Ubuntu because of Java and Mongo incompatibilities on RPi OS) and you are on your way.  Since this will be private IP host on your home network, Port Forwarding is required to make your website visible on the Internet. 
 
 Runtime Notes: Mostly I use VNC Viewer to connect to the RPi.  This is a full desktop remote display tool.  RealVNC lets you share full desktop with cohorts.  If you reboot RPi, you need a monitor connected at reboot to maintain VNC screen share functionality.  Reboot will cause screen buffer not to be recognized unless HDMI is present.  There may be a dummy (mini) HDMI plug that could overcomee this issue.  Otherwise, after setup your RPi could be headless.
  
@@ -106,14 +112,14 @@ Review your instance launch details. Click Launch to assign a key pair to your i
 
 Manage your PEM file, rename and move to SSH configuration directory, setting permission on my PEM file to protect it:
   
-    MacBook-Pro-2:~ johnmortensen$ cd
-    MacBook-Pro-2:~ johnmortensen$ sudo mv spring.pem .ssh/ec2spring.pem
-    MacBook-Pro-2:~ johnmortensen$ sudo chmod 600 .ssh/ec2spring.pem
+    MacBook-Pro-2:~ $ cd
+    MacBook-Pro-2:~ $ sudo mv spring.pem .ssh/ec2spring.pem
+    MacBook-Pro-2:~ $ sudo chmod 600 .ssh/ec2spring.pem
 
 SSH command
 
-    MacBook-Pro-2:~ johnmortensen$ cd
-    MacBook-Pro-2:~ johnmortensen$ sudo ssh -i .ssh/ec2spring.pem ubuntu@52.34.146.159
+    MacBook-Pro-2:~ $ cd
+    MacBook-Pro-2:~ $ sudo ssh -i .ssh/ec2spring.pem ubuntu@52.34.146.159
    
 This should lead you to a NEW terminal prompt on ubuntu:
 
@@ -135,15 +141,12 @@ In the navigation bar at the left, expand "SSH" and select "Auth". Under "privat
 ![](https://github.com/nighthawkcoders/spring-idea/blob/master/assets/puttyauth.png)
 
 
-# Instruction on deploying Spring/Java Jar file to Raspberry Pi OS or AWS EC2 Ubuntu
-Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.
+# Instruction on deploying Spring/Java Jar file to Raspberry Pi OS or Ubuntu (AWS or RPi)
+Background.  Java is its own server.  A Java program runs servlets, aka the Java-enabled web server.  Servlets work on the server-side. Servlets are capable of handling complex requests obtained from web server.  
 
-First you need to install Java on your OS.  The default as of this writing is OpenJDK 11 for both Raspberry Pi OS and Ubuntu.
-
-    pi@raspberrypi:~ $ sudo apt update; sudo apt upgrade
-    pi@raspberrypi:~ $ sudo apt install default-jdk
+To run this project you will need Java, SQLite3, MongoDB.  Look for instructions at bottom of this page
     
-## Move JAR file to your deployment host with sftp (secure file transfer protocol).  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS
+## Move JAR file to your deployment host with sftp (secure file transfer protocol).  This procedure shows an option for JAR file from MacOS to Ubuntu on AWS.
 
     MacBook-Pro-2:~ sftp -i ~/.ssh/ec2spring.pem ubuntu@52.34.146.159
     Connected to ubuntu@52.34.146.159.
@@ -179,19 +182,19 @@ To run and start application automatically it will require a JAR file from previ
 ## Java service commands using systemctl
 Running these commands will test your service:
  
-    pi@raspberrypi:~ $ sudo systemctl start <my_service_file>.service
-    pi@raspberrypi:~ $ sudo systemctl stop <my_service_file>.service
+    $ sudo systemctl start <my_service_file>.service
+    $ sudo systemctl stop <my_service_file>.service
 
 Running these commands will enable or disable service at a reboot:
 
-    pi@raspberrypi:~ $ sudo systemctl enable <my_service_file>.service
-    pi@raspberrypi:~ $ sudo systemctl disable <my_service_file>.service
+    $ sudo systemctl enable <my_service_file>.service
+    $ sudo systemctl disable <my_service_file>.service
 
 ## Nginx service configuration
 Now that the Spring application is running as a service, an Nginx proxy allows opening the application to an unprivileged port and setting up SSL.
 
 Install Nginx
-    pi@raspberrypi:~ $ sudo apt install nginx
+    $ sudo apt install nginx
 
 Create an Nginx configuration for the reverse proxy, File: /etc/nginx/sites-availble/<my_nginx_file>
     
@@ -211,22 +214,85 @@ Create an Nginx configuration for the reverse proxy, File: /etc/nginx/sites-avai
 ## Nginx service commands
 Test the configuration to make sure there are no errors:
 
-    pi@raspberrypi:~ $ sudo ln -s /etc/nginx/sites-available/<my_nginx_file> /etc/nginx/sites-enabled
-    pi@raspberrypi:~ $ sudo nginx -t
+    $ sudo ln -s /etc/nginx/sites-available/<my_nginx_file> /etc/nginx/sites-enabled
+    $ sudo nginx -t
 
 If there are no errors, restart NGINX so the changes take effect:
 
-    pi@raspberrypi:~ $ sudo systemctl restart nginx
+    $ sudo systemctl restart nginx
     
-## Setting up MonogoDB
+## Setting up MonogoDB (works on Ubuntu, RPi OS is NOT working)
+This project requires a more recent MongoDB, [4.4](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) as of this writing. 
+```
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt-get install -y mongodb-org
+$ sudo systemctl status mongodb
+$ sudo systemctl enable mongodb //enable at system boot
+$ mongo --version
+```
+Basic MongoDB commands, run mongo anywhere on host
+```
+$ mongo
+> show dbs
+> show tables
+> db.personMongo.find()
+```
+
+## Setting up Sqlite3
+SQLite does not have a server process like most SQL databases.  
 ```
 $ sudo apt update
 $ sudo apt upgrade
-$ sudo apt install mongodb
-$ sudo systemctl status mongodb
-$ sudo systemctl start mongodb
-$ sudo systemctl enable mongodb //system boot
-$ sudo mongo
+$ sudo apt install sqlite3, libsqlite3-dev
+$ sqlite3 --version
+```
+Basic SQLite commands, run sqlite3 in Project directory where sqlite3 directory is created
+```
+$ cd spring-idea
+$ sqlite3 sqlite.db
+sqlite> .schema
+sqlite> .tables
+sqlite> select * from person;
+```
+## Setting up Java runtime and development
+Java is two pieces, we will need both if you want to run and build 
+```
+$ sudo apt update
+$ sudo apt upgrade
+```
+Install Java Runtime Environment
+```
+$ sudo apt install default-jre
+$ java -version
+```
+Install Java Development Kit
+```
+$ sudo apt install default-jdk
+$ javac -version
+```
+
+## Build and run project
+Prerequisite is Maven install, as well as MongoDB and SQLite (above)
+```
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install maven
+$ mvn -version
+```
+Clone and build spring-idea repository
+```
+$ cd
+$ git clone https://github.com/nighthawkcoders/spring-idea.git
+$ cd spring-idea
+$ mvnw package
+```
+Run and test you java project
+```
+$ cd
+$ java -jar spring-idea/target/serving-web-content-0.0.1-SNAPSHOT.jar
 ```
     
 
