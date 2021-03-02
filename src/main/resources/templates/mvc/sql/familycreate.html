@@ -29,9 +29,18 @@
                     <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
                 </tr>
                 <tr>
-                    <td>Primary:</td>
+                    <td>Contact:</td>
                     <td>
                         <select th:field="*{primary}" class="form-control" required />
+                        <th:block th:each="person : ${listPersons}">
+                            <option th:text="${person.name} + ', ' + ${person.age}" th:value="${person.id}">
+                        </th:block>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spouse:</td>
+                    <td>
+                        <select th:field="*{spouse}" class="form-control" required />
                         <th:block th:each="person : ${listPersons}">
                             <option th:text="${person.name} + ', ' + ${person.age}" th:value="${person.id}">
                         </th:block>
