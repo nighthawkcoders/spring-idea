@@ -30,14 +30,21 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/familyresults").setViewName("mvc/sql/familyresults");
+        registry.addViewController("/sql/familyresults").setViewName("mvc/sql/familyresults");
+    }
+
+    @GetMapping("/sql/family")
+    public String family(Model model) {
+        List<Family> list = familySqlRepository.listAll();
+        model.addAttribute("list", list);
+        return "mvc/sql/family";
     }
 
     /*  The HTML template Forms and Model attributes are bound
         @return - Template for form
         @param -  Class for form
     */
-    @GetMapping("/familycreate")
+    @GetMapping("/sql/familycreate")
     public String showForm(Model model) {
         Family family = new Family();
         List<Person> listPersons = personSqlRepository.listAll();
@@ -50,7 +57,7 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
     @param - object with @Valid
     @param - BindingResult object
      */
-    @PostMapping("/familysave")
+    @PostMapping("/sql/familysave")
     public String saveData(@Valid Family family, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         // Validation of Family attributes, validation of nested object supported
         if (bindingResult.hasErrors()) {
@@ -59,6 +66,6 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
         // Redirect to next step
         familySqlRepository.save(family);
         redirectAttributes.addAttribute("familyString", family.toString());
-        return "redirect:/familyresults";
+        return "redirect:/sql/familyresults";
     }
 }
