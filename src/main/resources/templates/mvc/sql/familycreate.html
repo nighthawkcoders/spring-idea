@@ -11,7 +11,8 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body><div layout:fragment="content" th:remove="tag">
     <div style="margin: 2%;">
-        <h3>Welcome, Enter The Persons Details</h3>
+        <div th:if="${id == null}"><h3>Welcome, Create The Family Details</h3></div>
+        <div th:unless="${id == null}"><h3>Welcome, Edit The Family Details</h3></div>
         <!-- ThymeLeaf allows person abject of the Class Person to be acted upon by the form
          This is known as a “bean-backed form” or "form-backing bean".
             th:object - the backend form object (bean object)
@@ -22,7 +23,14 @@
             th:errors - form input errors added when validation errors occur
          .-->
         <form action="#" th:action="@{/sql/familysave}" th:object="${family}" method="POST">
+            <!-- support edit -->
+            <input type="hidden" th:field="*{id}" readonly="readonly" />
             <table>
+                <tr th:if="${id != null}">
+                    <td>Family ID: </td>
+                    <td th:text="${id}">Family ID</td>
+                </tr>
+
                 <tr>
                     <td>Family Name:</td>
                     <td><input type="text" th:field="*{name}" /></td>
@@ -48,7 +56,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Add</button></td>
+                    <td><button type="submit">Save</button></td>
                 </tr>
             </table>
         </form>

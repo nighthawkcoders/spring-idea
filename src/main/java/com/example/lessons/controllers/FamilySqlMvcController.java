@@ -26,14 +26,6 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
     @Autowired
     private PersonSqlRepository personSqlRepository;
 
-    /*
-    If all bound attribute are valid, a redirect occurs to this route and template.
-     */
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/sql/familyresults").setViewName("mvc/sql/familyresults");
-    }
-
     @GetMapping("/sql/family")
     public String family(Model model) {
         List<Family> list = familySqlRepository.listAll();
@@ -46,10 +38,19 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
         @param -  Class for form
     */
     @GetMapping("/sql/familycreate")
-    public String showForm(Model model) {
+    public String familyCreate(Model model) {
         Family family = new Family();
         List<Person> listPersons = personSqlRepository.listAll();
         model.addAttribute("family", family);
+        model.addAttribute("listPersons", listPersons);
+        return "mvc/sql/familycreate";
+    }
+
+    @GetMapping("/sql/familyupdate/{id}")
+    public String familyUpdate(@PathVariable("id") int id, Model model) {
+        model.addAttribute("id", id);
+        List<Person> listPersons = personSqlRepository.listAll();
+        model.addAttribute("family", familySqlRepository.get(id));
         model.addAttribute("listPersons", listPersons);
         return "mvc/sql/familycreate";
     }
@@ -67,7 +68,7 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
         // Redirect to next step
         familySqlRepository.save(family);
         redirectAttributes.addAttribute("familyString", family.toString());
-        return "redirect:/sql/familyresults";
+        return "redirect:/sql/family";
     }
 
     @GetMapping("/sql/familydelete/{id}")
