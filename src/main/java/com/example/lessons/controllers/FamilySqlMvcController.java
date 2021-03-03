@@ -12,10 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.List;
 
-// Built using article: https://spring.io/guides/gs/validating-form-input/
-// or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
+// Built using video: https://www.youtube.com/watch?v=ctwRpskAeIU
 @Controller
 public class FamilySqlMvcController implements WebMvcConfigurer {
 
@@ -44,7 +42,7 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
 
     @GetMapping("/sql/familyupdate/{id}")
     public String familyUpdate(@PathVariable("id") int id, Model model) {
-        model.addAttribute("edit_id", id);
+        model.addAttribute("edit_id", id);  //passed to support using one form
         model.addAttribute("family", familySqlRepository.get(id));
         model.addAttribute("listPersons", personSqlRepository.listAll());
         return "mvc/sql/familyform";

@@ -27,6 +27,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                <!--
+                Display listing of Family properties
+                 Reference to POJO details
+                 Objects primary and spouse allow access to details
+                -->
                 <tr th:each="family : ${list}">
                     <td th:text="${family.id}">Family ID</td>
                     <td th:text="${family.name}">Family ID</td>
@@ -39,7 +44,9 @@
                 </tr>
                 </tbody>
             </table>
-
+            <!--
+            <p th:text="'Raw Data: ' + ${list}"></p>
+            -->
         </div>
     </div>
 </div></body>
