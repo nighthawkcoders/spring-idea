@@ -38,6 +38,6 @@ public class Person {
 
     // Age is restricted
     @NonNull
-    @Min(11) @Max(120)
+    @Min(0) @Max(122)
     private Integer age;
 }

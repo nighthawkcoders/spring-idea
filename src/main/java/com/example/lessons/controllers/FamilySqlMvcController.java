@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -28,8 +27,7 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
 
     @GetMapping("/sql/family")
     public String family(Model model) {
-        List<Family> list = familySqlRepository.listAll();
-        model.addAttribute("list", list);
+        model.addAttribute("list", familySqlRepository.listAll());
         return "mvc/sql/family";
     }
 
@@ -39,20 +37,17 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
     */
     @GetMapping("/sql/familycreate")
     public String familyCreate(Model model) {
-        Family family = new Family();
-        List<Person> listPersons = personSqlRepository.listAll();
-        model.addAttribute("family", family);
-        model.addAttribute("listPersons", listPersons);
-        return "mvc/sql/familycreate";
+        model.addAttribute("family", new Family());
+        model.addAttribute("listPersons", personSqlRepository.listAll());
+        return "mvc/sql/familyform";
     }
 
     @GetMapping("/sql/familyupdate/{id}")
     public String familyUpdate(@PathVariable("id") int id, Model model) {
-        model.addAttribute("id", id);
-        List<Person> listPersons = personSqlRepository.listAll();
+        model.addAttribute("edit_id", id);
         model.addAttribute("family", familySqlRepository.get(id));
-        model.addAttribute("listPersons", listPersons);
-        return "mvc/sql/familycreate";
+        model.addAttribute("listPersons", personSqlRepository.listAll());
+        return "mvc/sql/familyform";
     }
 
     /* Gathers the attributes filled out in the form, tests for and retrieves validation error
@@ -63,11 +58,10 @@ public class FamilySqlMvcController implements WebMvcConfigurer {
     public String saveData(@Valid Family family, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         // Validation of Family attributes, validation of nested object supported
         if (bindingResult.hasErrors()) {
-            return "mvc/sql/familycreate";
+            return "mvc/sql/familyform";
         }
         // Redirect to next step
         familySqlRepository.save(family);
-        redirectAttributes.addAttribute("familyString", family.toString());
         return "redirect:/sql/family";
     }
 
